@@ -7,6 +7,8 @@ export class AuthFormContainer extends React.Component {
     super(props);
   }
 
+  
+
   render() {
     return (
       <section className="auth-form">
