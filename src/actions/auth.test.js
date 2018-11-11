@@ -30,7 +30,6 @@ describe('logout action', () =>{
     let actual = logout();
 
     expect(actual.type).toBe('LOGOUT');
-    expect(utils.tokenDelete).toHaveBeenCalled();
   });
 });
 
