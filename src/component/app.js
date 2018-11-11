@@ -34,12 +34,12 @@ export class App extends React.Component {
 
 }
 
-const mapStateToProps = state => {
-  return {};
-};
+const mapStateToProps = state => ({
+  route: state.route,
+});
 
 const mapDispatchToProps = dispatch => ({
-
+  //
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
