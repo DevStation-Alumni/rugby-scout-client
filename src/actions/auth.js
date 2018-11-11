@@ -22,3 +22,27 @@ export const logout = () => {
 /********************************************************************************
 *         Asynchronous                                                          *
 ********************************************************************************/
+
+export const signupRequest = user => dispatch => {
+  return superagent.post(`${__API_URL__}/register`)
+    .send(user)
+    .withCredentials()
+    .then(res => {
+      localStorage.setItem('token', res.body);
+      dispatch(login(res.body));
+      return res;
+    })
+    .catch(console.error);
+};
+
+export const loginRequest = user => dispatch => {
+  return superagent.get(`${__API_URL__}/login`)
+    .send(user)
+    .withCredentials()
+    .then(res => {
+      localStorage.setItem('token', res.body);
+      dispatch(login(res.body));
+      return res;
+    })
+    .catch(console.error);
+};
