@@ -1,17 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import { Navbar, Nav, NavItem, Image } from 'react-bootstrap';
-import './navbar.scss';
+import * as route from '../../actions/route';
+import './_navbar.scss';
+import { AboutContainer } from '../about';
 
 
 
 
 
-export default class CustomNav extends Component {
+export class CustomNav extends React.Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: false,
+      route: '/',
     };
   }
 
@@ -20,19 +23,19 @@ export default class CustomNav extends Component {
       <Navbar default collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
-            <Image src="/assets/rslogoonline.svg" className="logo" />
+            <Image src="https://s3.amazonaws.com/rugbyscout-two/rslogoonline.svg" className="logo" />
           </Navbar.Brand>
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
           <Nav pullRight>
-            <NavItem eventKey={1} onClick>
-              About</NavItem>
-            <NavItem eventKey={2} onClick={this.props.}>
+            <NavItem eventKey={2} onClick={this.props.goToLanding} >
               Home</NavItem>
-            <NavItem eventKey={3} onClick>
+            <NavItem eventKey={1} onClick={this.props.goToAbout} >
+              About</NavItem>
+            <NavItem eventKey={3} >
               Login</NavItem>
-            <NavItem eventKey={3} onClick>
+            <NavItem eventKey={3} >
               SignUp</NavItem>
           </Nav>
         </Navbar.Collapse>
@@ -40,3 +43,14 @@ export default class CustomNav extends Component {
     );
   }
 }
+export const mapStateToProps = (state) => ({
+});
+
+export const mapDispatchToProps = (dispatch) => ({
+  goToAbout: () => dispatch(route.switchRoute('/about')),
+  goToLanding: () => dispatch(route.switchRoute('/')),
+
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomNav);
