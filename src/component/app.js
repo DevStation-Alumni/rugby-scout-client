@@ -21,7 +21,6 @@ export class App extends React.Component {
             <header>
               <CustomNav />
             </header>
-            <h1>Hello Alex!</h1>
             <MemoryRouter>
               <Switch location={{ pathname: this.props.route }} >
                 <Route path='/landing' Component={LandingContainer} />

@@ -32,10 +32,10 @@ export class CustomNav extends React.Component {
               Home</NavItem>
             <NavItem eventKey={1} onClick={this.props.goToAbout} >
               About</NavItem>
-            <NavItem eventKey={3} >
+            <NavItem eventKey={3} onClick={this.props.goToLogin}>
               Login</NavItem>
-            <NavItem eventKey={3} >
-              SignUp</NavItem>
+            <NavItem eventKey={3} onClick={this.props.goToSignup} >
+              Register</NavItem>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
@@ -48,6 +48,9 @@ export const mapStateToProps = (state) => ({
 export const mapDispatchToProps = (dispatch) => ({
   goToAbout: () => dispatch(route.switchRoute('/about')),
   goToLanding: () => dispatch(route.switchRoute('/')),
+  goToLogin: () => dispatch(route.switchRoute('/login')),
+  goToSignup: () => dispatch(route.switchRoute('/signup')),
+  // goToLogout:() => dispatch(auth.logout()),
 
 
 });
