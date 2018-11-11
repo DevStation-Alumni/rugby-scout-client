@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { Navbar, Nav, NavItem, Image } from 'react-bootstrap';
 import * as route from '../../actions/route';
 import './_navbar.scss';
-import { AboutContainer } from '../about';
 
 
 
@@ -14,7 +13,7 @@ export class CustomNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      route: '/',
+
     };
   }
 
