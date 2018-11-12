@@ -5,9 +5,17 @@ import { connect } from 'react-redux';
 export class AuthFormContainer extends React.Component {
   constructor(props){
     super(props);
+
+    this.state = {
+      isNewAccount: true,
+    };
   }
 
-  
+  componentWillMount(){
+    this.props.location === 'signup' ?
+      this.setState({isNewAccount: true}) : 
+      this.setState({isNewAccount: false});
+  }
 
   render() {
     return (
