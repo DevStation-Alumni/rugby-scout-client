@@ -1,38 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import authActions from '../../actions/auth';
+import SignupForm from '../signup/signup';
+import LoginForm from '../login/login';
 
 export class AuthFormContainer extends React.Component {
   constructor(props){
     super(props);
 
-    this.state = {
-      isNewAccount: true,
-    };
   }
 
-  componentWillMount(){
-    this.props.location === 'signup' ?
-      this.setState({isNewAccount: true}) : 
-      this.setState({isNewAccount: false});
-  }
+
 
   render() {
     return (
       <section className="auth-form">
-        <h1>Signup/Login</h1>
+        {this.props.route === '/signup' ?
+          <SignupForm /> :
+          <LoginForm />}
       </section>
     );
   }
 
 }
 
-const mapStateToProps = state => {
-  return {};
-};
+const mapStateToProps = state => ({
+  route: state.route,
+});
 
 const mapDispatchToProps = dispatch => ({
-
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AuthFormContainer);
