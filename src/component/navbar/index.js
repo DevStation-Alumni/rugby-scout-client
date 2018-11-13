@@ -2,10 +2,6 @@ import React from 'react';
 import { Navbar, Nav, NavItem, Image, FormGroup, FormControl, Button } from 'react-bootstrap';
 import './_navbar.scss';
 
-
-
-
-
 export default class CustomNav extends React.Component {
 
   constructor(props) {
