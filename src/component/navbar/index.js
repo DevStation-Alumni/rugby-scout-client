@@ -32,9 +32,9 @@ export default class CustomNav extends React.Component {
             <Button type="submit">Submit</Button>
           </Navbar.Form>
           <Nav pullRight>
-            <NavItem eventKey={2} onClick={this.props.actions.goToLanding} >
+            <NavItem eventKey={1} onClick={this.props.actions.goToLanding} >
               Home</NavItem>
-            <NavItem eventKey={1} onClick={this.props.actions.goToAbout} >
+            <NavItem eventKey={2} onClick={this.props.actions.goToAbout} >
               About</NavItem>
             <NavItem eventKey={3} onClick={this.props.actions.goToLogin}>
               Login</NavItem>
