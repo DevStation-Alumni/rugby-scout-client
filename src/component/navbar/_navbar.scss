@@ -4,3 +4,8 @@
   top: .2em;
   padding: 0;
 }
+@media (max-width: 767px) {
+  .navbar-form {
+    padding-top: 2.2em;
+  }
+}
