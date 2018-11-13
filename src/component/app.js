@@ -44,8 +44,6 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  // logout:
-  // login:
   goToAbout: () => dispatch(route.switchRoute('/about')),
 });
 
