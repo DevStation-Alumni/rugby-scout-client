@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { Grid, Row, Col, Image } from 'react-bootstrap';
 import ReactCardFlipper from 'react-card-flipper';
 
-export class AboutContainer extends React.Component {
+
+export default class AboutContainer extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -34,13 +35,3 @@ export class AboutContainer extends React.Component {
   }
 }
 
-
-const mapStateToProps = state => {
-  return {};
-};
-
-const mapDispatchToProps = dispatch => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(AboutContainer);
