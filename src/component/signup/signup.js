@@ -1,13 +1,15 @@
 import React from 'react';
 import validator from 'validator';
+import queryString from 'querystring';
+import { STATUS_CODES } from 'http';
 
 const Tooltip = props => {
   return (
     <div className='tool-tip'>
       <span className='tool-tip-next'>{props.message}</span>
     </div>
-  )
-}
+  );
+};
 
 export default class SignupForm extends React.Component {
   constructor(props) {
@@ -15,12 +17,9 @@ export default class SignupForm extends React.Component {
 
     this.state = {
       email: '',
-      username: '',
       password: '',
       emailError: '',
-      usernameError: '',
       passwordError: '',
-
     };
 
     this.validateChange = this.validateChange.bind(this);
@@ -32,15 +31,9 @@ export default class SignupForm extends React.Component {
     let { name, value } = e.target;
     let error = null;
 
-    if (name === 'username') {
-      if (!value) {
-        error = 'username field cannot be empty';
-      } else if (!validator.isAlphanumeric(value)){
-        error = 'username can only contain numbers and letters';
-      }
-    } else if (name === 'email') {
+    if (name === 'email') {
       if (!value){error = 'email field cannot be empty';} 
-      if (!validator.isEmail(value)){
+      else if (!validator.isEmail(value)){
         error = 'email is not a valid email';
       }
     } else if (name === 'password') {
@@ -55,7 +48,6 @@ export default class SignupForm extends React.Component {
   }
 
   handleChange(e) {
-    e.preventDefault();
     this.validateChange(e);
 
     let { name, value } = e.target;
@@ -67,14 +59,25 @@ export default class SignupForm extends React.Component {
     if (!this.state.emailError && !this.state.passwordError && !this.state.usernameError){
       this.props.signupRequest({
         email: this.state.email,
-        username: this.state.username,
         password: this.state.password,
       });
     }
   }
 
   render() {
-    console.log('SIGNUP PROPS', this.props);
+
+    let googleLoginBaseURL = 'https://accounts.google.com/o/oauth2/v2/auth';
+
+    let googleLoginQuery = queryString.stringify({
+      client_id:__GOOGLE_CLIENT_ID__,
+      response_type: STATUS_CODES,
+      redirect_uri: `${__API_URL__}/oauth`,
+      scope: `openid profile email`,
+      prompt: __DEBUG__ ? 'consent' : null,
+    });
+
+    let googleLoginURL = `${googleLoginBaseURL}?${googleLoginQuery}`;
+
     return (
       <div>
         <form className="signup-form" onSubmit={this.handleSubmit}>
@@ -86,6 +89,8 @@ export default class SignupForm extends React.Component {
           <input name='password' type='password' placeholder='password' value={this.state.password} onChange={this.handleChange} />
           <button type="submit">Register</button>
         </form>
+        <h3>Or, signup using Google</h3>
+        <a href={googleLoginURL}>Google Link</a>
       </div>
     );
   }

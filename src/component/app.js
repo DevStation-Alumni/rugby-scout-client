@@ -23,12 +23,12 @@ export class App extends React.Component {
               <CustomNav actions={this.props.actions} />
             </header>
             <MemoryRouter>
-              <Switch location={{ pathname: this.props.route }} >
-
+              <Switch location={{ pathname: this.props.route }} > 
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
                 <Route path='/search-results' component={SearchResultsContainer} />
                 <Route path='/profile' component={ProfileContainer} />
+                <Route path='/profile/me' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
                 <Route path='/' component={LandingContainer} />
               </Switch>
