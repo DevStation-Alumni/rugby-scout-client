@@ -1,14 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { Navbar, Nav, NavItem, Image, FormGroup, FormControl, Button } from 'react-bootstrap';
-import * as route from '../../actions/route';
 import './_navbar.scss';
 
 
 
 
 
-export class CustomNav extends React.Component {
+export default class CustomNav extends React.Component {
 
   constructor(props) {
     super(props);
@@ -34,13 +32,13 @@ export class CustomNav extends React.Component {
             <Button type="submit">Submit</Button>
           </Navbar.Form>
           <Nav pullRight>
-            <NavItem eventKey={2} onClick={this.props.goToLanding} >
+            <NavItem eventKey={2} onClick={this.props.actions.goToLanding} >
               Home</NavItem>
-            <NavItem eventKey={1} onClick={this.props.goToAbout} >
+            <NavItem eventKey={1} onClick={this.props.actions.goToAbout} >
               About</NavItem>
-            <NavItem eventKey={3} onClick={this.props.goToLogin}>
+            <NavItem eventKey={3} onClick={this.props.actions.goToLogin}>
               Login</NavItem>
-            <NavItem eventKey={3} onClick={this.props.goToSignup} >
+            <NavItem eventKey={4} onClick={this.props.actions.goToSignup} >
               Register</NavItem>
           </Nav>
         </Navbar.Collapse>
@@ -48,17 +46,3 @@ export class CustomNav extends React.Component {
     );
   }
 }
-export const mapStateToProps = (state) => ({
-});
-
-export const mapDispatchToProps = (dispatch) => ({
-  goToAbout: () => dispatch(route.switchRoute('/about')),
-  goToLanding: () => dispatch(route.switchRoute('/')),
-  goToLogin: () => dispatch(route.switchRoute('/login')),
-  goToSignup: () => dispatch(route.switchRoute('/signup')),
-  // goToLogout:() => dispatch(auth.logout()),
-
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(CustomNav);
