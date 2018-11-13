@@ -17,10 +17,8 @@ export default class SignupForm extends React.Component {
 
     this.state = {
       email: '',
-      username: '',
       password: '',
       emailError: '',
-      usernameError: '',
       passwordError: '',
     };
 
@@ -33,15 +31,9 @@ export default class SignupForm extends React.Component {
     let { name, value } = e.target;
     let error = null;
 
-    if (name === 'username') {
-      if (!value) {
-        error = 'username field cannot be empty';
-      } else if (!validator.isAlphanumeric(value)){
-        error = 'username can only contain numbers and letters';
-      }
-    } else if (name === 'email') {
+    if (name === 'email') {
       if (!value){error = 'email field cannot be empty';} 
-      if (!validator.isEmail(value)){
+      else if (!validator.isEmail(value)){
         error = 'email is not a valid email';
       }
     } else if (name === 'password') {
@@ -67,7 +59,6 @@ export default class SignupForm extends React.Component {
     if (!this.state.emailError && !this.state.passwordError && !this.state.usernameError){
       this.props.signupRequest({
         email: this.state.email,
-        username: this.state.username,
         password: this.state.password,
       });
     }

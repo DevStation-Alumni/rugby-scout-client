@@ -77,4 +77,54 @@ describe('Signup form component', () =>{
     expect(wrapper.state().emailError).toBe('email field cannot be empty');
     onChange.restore();
   });
+
+  test('should show validator error on bad email input', () => {
+  
+    let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
+
+    let wrapper = Enzyme.shallow(<SignupForm />);
+    const event = {target: {
+      name: 'email',
+      value: 'bad',
+    }};
+
+    wrapper.find('input[name="email"]').simulate('change', event);
+
+    expect(onChange.callCount).toBe(1);
+    expect(wrapper.state().emailError).toBe('email is not a valid email');
+    onChange.restore();
+  });
+
+  test('should show validator error on password input', () => {
+  
+    let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
+
+    let wrapper = Enzyme.shallow(<SignupForm />);
+    const event = {target: {
+      name: 'password',
+    }};
+
+    wrapper.find('input[name="password"]').simulate('change', event);
+
+    expect(onChange.callCount).toBe(1);
+    expect(wrapper.state().passwordError).toBe('email field cannot be empty');
+    onChange.restore();
+  });
+
+  test('should show validator error on bad password input', () => {
+  
+    let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
+
+    let wrapper = Enzyme.shallow(<SignupForm />);
+    const event = {target: {
+      name: 'password',
+      value: 'bad',
+    }};
+
+    wrapper.find('input[name="password"]').simulate('change', event);
+
+    expect(onChange.callCount).toBe(1);
+    expect(wrapper.state().passwordError).toBe('password is not a valid password');
+    onChange.restore();
+  });
 });
