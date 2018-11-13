@@ -4,12 +4,12 @@ import Adapter from 'enzyme-adapter-react-16';
 import 'jest';
 
 Enzyme.configure({ adapter: new Adapter });
-import {AuthFormContainer} from './auth-form';
+import SignupForm from './signup.js';
 
-describe('Auth Form Component', () =>{
+describe('Signup form component', () =>{
 
-  test('Auth form component exists', () => {
-    let wrapper = Enzyme.shallow(<AuthFormContainer />);
+  test('Signup form component exists', () => {
+    let wrapper = Enzyme.shallow(<SignupForm />);
 
     expect(wrapper.exists()).toBeTruthy();
   });
