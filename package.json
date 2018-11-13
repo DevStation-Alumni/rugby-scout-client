@@ -54,6 +54,7 @@
     "node-sass": "^4.10.0",
     "react": "^16.6.1",
     "react-bootstrap": "^0.32.4",
+    "react-card-flipper": "^1.0.1",
     "react-dom": "^16.6.1",
     "react-redux": "^5.1.0",
     "react-router-bootstrap": "^0.24.4",

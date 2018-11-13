@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { MemoryRouter, Switch, Route, BrowserRouter } from 'react-router-dom';
 
+
 import LandingContainer from './landing/landing';
 import AuthContainer from './auth-form/auth-form';
 import SearchResultsContainer from './search-results/search-results';
@@ -19,17 +20,17 @@ export class App extends React.Component {
         <BrowserRouter>
           <div>
             <header>
-              <CustomNav />
+              <CustomNav actions={this.props.actions} />
             </header>
             <MemoryRouter>
-              <Switch location={{ pathname: this.props.route }} >
-                <Route path='/' component={LandingContainer} />
+              <Switch location={{ pathname: this.props.route }} > 
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
                 <Route path='/search-results' component={SearchResultsContainer} />
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/profile/me' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
+                <Route path='/' component={LandingContainer} />
               </Switch>
             </MemoryRouter>
           </div>
@@ -45,7 +46,13 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  goToAbout: () => dispatch(route.switchRoute('/about')),
+  actions:
+  {
+    goToAbout: () => dispatch(route.switchRoute('/about')),
+    goToLogin: () => dispatch(route.switchRoute('/login')),
+    goToSignup: () => dispatch(route.switchRoute('/signup')),
+    goToLanding: () => dispatch(route.switchRoute('/')),
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

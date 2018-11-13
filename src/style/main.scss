@@ -1,5 +1,7 @@
-@import 'reset.scss';
+@import '_reset.scss';
 @import url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css');
-@import 'base.scss';
-@import 'layout.scss';
-@import '../component/navbar/_navbar.scss'
+@import '_vars.scss';
+@import '_base.scss';
+@import '_layout.scss';
+@import '../component/navbar/_navbar.scss';
+@import '../component/about/about';
