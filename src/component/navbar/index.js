@@ -34,7 +34,7 @@ export class CustomNav extends React.Component {
               About</NavItem>
             <NavItem eventKey={3} onClick={this.props.goToLogin}>
               Login</NavItem>
-            <NavItem eventKey={3} onClick={this.props.goToSignup} >
+            <NavItem eventKey={4} onClick={this.props.goToSignup} >
               Register</NavItem>
           </Nav>
         </Navbar.Collapse>

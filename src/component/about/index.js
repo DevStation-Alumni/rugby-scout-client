@@ -13,7 +13,7 @@ export class AboutContainer extends React.Component {
         <Grid>
           <Row className="show-grid text-center">
             <Col xs={12} sm={4} className="person-wrapper">
-              <ReactCardFlipper>
+              <ReactCardFlipper levitate>
                 <div><Image src="https://s3.amazonaws.com/rugbyscout-two/connor_rs_about.png" className="profile-pic" /> </div>
                 <div><Image src="https://s3.amazonaws.com/rugbyscout-two/connor_rs_about.png" className="profile-pic" /> </div>
               </ReactCardFlipper>
