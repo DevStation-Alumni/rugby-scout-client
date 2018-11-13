@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Navbar, Nav, NavItem, Image } from 'react-bootstrap';
+import { Navbar, Nav, NavItem, Image, FormGroup, FormControl, Button } from 'react-bootstrap';
 import * as route from '../../actions/route';
 import './_navbar.scss';
 
@@ -19,7 +19,7 @@ export class CustomNav extends React.Component {
 
   render() {
     return (
-      <Navbar default collapseOnSelect>
+      <Navbar className="sticky-nav" default collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
             <Image src="https://s3.amazonaws.com/rugbyscout-two/rslogoonline.svg" className="logo" />
@@ -27,6 +27,12 @@ export class CustomNav extends React.Component {
           <Navbar.Toggle />
         </Navbar.Header>
         <Navbar.Collapse>
+          <Navbar.Form pullRight>
+            <FormGroup>
+              <FormControl type="text" placeholder="Search" />
+            </FormGroup>{' '}
+            <Button type="submit">Submit</Button>
+          </Navbar.Form>
           <Nav pullRight>
             <NavItem eventKey={2} onClick={this.props.goToLanding} >
               Home</NavItem>
