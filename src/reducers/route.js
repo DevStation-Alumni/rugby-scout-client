@@ -1,4 +1,4 @@
-export default (state = '/about', { type, payload }) => {
+export default (state = '/', { type, payload }) => {
   switch (type) {
     case 'LANDING': return '/';
     case 'SIGNUP': return '/signup';
@@ -8,7 +8,6 @@ export default (state = '/about', { type, payload }) => {
     case 'ABOUT': return '/about';
     case 'SWITCH_ROUTE':
       return payload;
-
 
     default: return state;
   }

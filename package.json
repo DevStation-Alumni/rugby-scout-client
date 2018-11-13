@@ -16,6 +16,11 @@
   "jest": {
     "moduleNameMapper": {
       "\\.(scss|css|less)$": "identity-obj-proxy"
+    },
+    "globals": {
+      "__GOOGLE_CLIENT_ID__" : "google client id",
+      "__API_URL__": "api url",
+      "__DEBUG__": null
     }
   },
   "author": "Connor Crossley <cacrossley22@gmail.com>",

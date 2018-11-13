@@ -23,11 +23,12 @@ export class App extends React.Component {
             </header>
             <MemoryRouter>
               <Switch location={{ pathname: this.props.route }} >
-                <Route path='/landing' component={LandingContainer} />
+                <Route path='/' component={LandingContainer} />
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
                 <Route path='/search-results' component={SearchResultsContainer} />
                 <Route path='/profile' component={ProfileContainer} />
+                <Route path='/profile/me' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
               </Switch>
             </MemoryRouter>

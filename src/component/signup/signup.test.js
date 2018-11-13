@@ -4,6 +4,8 @@ import sinon from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest';
 
+jest.mock('validator');
+
 Enzyme.configure({ adapter: new Adapter });
 import SignupForm from './signup.js';
 
@@ -57,6 +59,22 @@ describe('Signup form component', () =>{
     wrapper.find('input[name="email"]').simulate('change', event);
 
     expect(onChange.callCount).toBe(1);
+    onChange.restore();
+  });
+
+  test('should show validator error on email input', () => {
+  
+    let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
+
+    let wrapper = Enzyme.shallow(<SignupForm />);
+    const event = {target: {
+      name: 'email',
+    }};
+
+    wrapper.find('input[name="email"]').simulate('change', event);
+
+    expect(onChange.callCount).toBe(1);
+    expect(wrapper.state().emailError).toBe('email field cannot be empty');
     onChange.restore();
   });
 });
