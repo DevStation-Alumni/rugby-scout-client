@@ -62,6 +62,7 @@ const mapDispatchToProps = dispatch => ({
     goToLogin: () => dispatch(route.switchRoute('/login')),
     goToSignup: () => dispatch(route.switchRoute('/signup')),
     goToLanding: () => dispatch(route.switchRoute('/')),
+    goToProfile: () => dispatch(route.switchRoute('/profile/me')),
   },
 });
 

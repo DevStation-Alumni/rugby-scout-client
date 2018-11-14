@@ -14,3 +14,7 @@ export const cookieFetch = key => {
     }));
   return cookies[key];
 };
+
+export const renderIf = (test, component) => {
+  return test ? component : null;
+};
