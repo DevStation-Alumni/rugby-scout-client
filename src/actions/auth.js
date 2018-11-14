@@ -30,7 +30,7 @@ export const signupRequest = user => dispatch => {
     .withCredentials()
     .then(res => {
       localStorage.setItem('token', res.text);
-      dispatch(login(res.body));
+      dispatch(login(res.text));
       dispatch(switchRoute('/profile/me'));
       return res;
     })
@@ -44,7 +44,7 @@ export const loginRequest = user => dispatch => {
     .then(res => {
       console.log('RES', res);
       localStorage.setItem('token', res.text);
-      dispatch(login(res.body));
+      dispatch(login(res.text));
       dispatch(switchRoute('/'));
       return res;
     })
