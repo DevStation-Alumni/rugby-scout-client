@@ -1,7 +1,6 @@
 import React from 'react';
 import validator from 'validator';
 import queryString from 'querystring';
-import { STATUS_CODES } from 'http';
 
 const Tooltip = props => {
   return (
@@ -56,7 +55,7 @@ export default class SignupForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (!this.state.emailError && !this.state.passwordError && !this.state.usernameError){
+    if (!this.state.emailError && !this.state.passwordError ){
       this.props.signupRequest({
         email: this.state.email,
         password: this.state.password,
@@ -70,7 +69,7 @@ export default class SignupForm extends React.Component {
 
     let googleLoginQuery = queryString.stringify({
       client_id:__GOOGLE_CLIENT_ID__,
-      response_type: STATUS_CODES,
+      response_type: 'code',
       redirect_uri: `${__API_URL__}/oauth`,
       scope: `openid profile email`,
       prompt: __DEBUG__ ? 'consent' : null,
@@ -83,8 +82,6 @@ export default class SignupForm extends React.Component {
         <form className="signup-form" onSubmit={this.handleSubmit}>
           <Tooltip message={this.state.emailError} />
           <input name='email' type='email' placeholder='email' value={this.state.email} onChange={this.handleChange} />
-          <Tooltip message={this.state.usernameError} />
-          <input name='username' type='text' placeholder='username' value={this.state.username} onChange={this.handleChange} />
           <Tooltip message={this.state.passwordError} />
           <input name='password' type='password' placeholder='password' value={this.state.password} onChange={this.handleChange} />
           <button type="submit">Register</button>

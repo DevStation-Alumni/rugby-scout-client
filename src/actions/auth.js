@@ -1,6 +1,6 @@
 import superagent from 'superagent';
 import * as utils from '../lib/util';
-import switchRoute from './route';
+import { switchRoute } from './route';
 
 /********************************************************************************
 *         Synchronous                                                           *
@@ -29,7 +29,7 @@ export const signupRequest = user => dispatch => {
     .send(user)
     .withCredentials()
     .then(res => {
-      localStorage.setItem('token', res.body);
+      localStorage.setItem('token', res.text);
       dispatch(login(res.body));
       dispatch(switchRoute('/profile/me'));
       return res;
@@ -39,10 +39,11 @@ export const signupRequest = user => dispatch => {
 
 export const loginRequest = user => dispatch => {
   return superagent.get(`${__API_URL__}/login`)
-    .send(user)
+    .auth(user.email, user.password)
     .withCredentials()
     .then(res => {
-      localStorage.setItem('token', res.body);
+      console.log('RES', res);
+      localStorage.setItem('token', res.text);
       dispatch(login(res.body));
       dispatch(switchRoute('/'));
       return res;
