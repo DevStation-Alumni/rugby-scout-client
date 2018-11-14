@@ -12,6 +12,8 @@ import CustomNav from './navbar/navbar';
 import * as route from '../actions/route';
 import { fetchResultsRequest } from '../actions/search-actions';
 import * as profileActions from '../actions/profile';
+import * as profilePhoto from '../actions/profile-photo';
+
 import { cookieFetch, cookieDelete } from '../lib/util';
 
 
@@ -74,7 +76,12 @@ const mapDispatchToProps = dispatch => ({
   profileAction:
   {
     createProfile: (profile) => dispatch(profileActions.profileCreateRequest(profile)),
+
     fetchProfile: (profile) => dispatch(profileActions.profileFetchRequest(profile)),
+  },
+  profilePhotoActions:
+  {
+    createProfilePhoto: (profile) => dispatch(profilePhoto.profilePhotoRequest(profile)),
   },
 });
 
