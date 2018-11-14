@@ -32,11 +32,22 @@ export default class ProfileContainer extends React.Component {
   render() {
     return (
       <section className="profile">
-        <form className="profile-form" onSubmit={this.handleSubmit}>
+        <form className="profile-photo" onSubmit={this.handleSubmit}>
           <img src={this.state.preview} style={{ 'width': '25%' }} />
           <input type="file" name="profilePhoto" onChange={this.handleChange}></input>
           <button type="submit">submit</button>
         </form>
+        <form>
+          <input
+            name='first name'
+            type='text'
+            placeholder='first name'
+            value={this.state.name}
+            onChange={this.handleChange}
+          />
+        </form>
+
+
       </section>
     );
   }

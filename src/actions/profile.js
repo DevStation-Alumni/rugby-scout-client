@@ -28,7 +28,7 @@ export const profileCreateRequest = (profile) => (dispatch, getState) => {
   return superagent.post(`${__API_URL__}/api/v1/profile`)
     .set('Authorization', `Bearer ${auth}`)
     // .field('bio', profile.bio)
-    .attach('profileImage', profile.profilePhoto)
+    .attach('profilePhoto', profile.profilePhoto)
     .then(res => {
       localStorage.userId = res.body._id;
       dispatch(profileCreate(res.body));

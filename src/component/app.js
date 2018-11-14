@@ -8,8 +8,8 @@ import LandingContainer from './landing/landing';
 import AuthContainer from './auth-form/auth-form';
 import SearchResultsContainer from './search-results/search-results';
 import ProfileContainer from './profile/profile';
-import AboutContainer from './about/index';
-import CustomNav from './navbar/index';
+import AboutContainer from './about/about';
+import CustomNav from './navbar/navbar';
 
 import * as route from '../actions/route';
 import * as profileActions from '../actions/profile';
