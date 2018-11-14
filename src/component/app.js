@@ -36,12 +36,10 @@ export class App extends React.Component {
               <Switch location={{ pathname: this.props.route }} >
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
-                {/* <Route path='/search-results' component={SearchResultsContainer} /> */}
                 <Route path='/search-results' render={(props) => <SearchResultsContainer {...props} results={this.props.results} />} />
                 <Route path='/profile/me' component={ProfileContainer} />
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
-                {/* <Route path='/' component={LandingContainer} /> */}
                 <Route path='/' render={(props) => <LandingContainer {...props} api={this.props.api} />} />
               </Switch>
             </MemoryRouter>
