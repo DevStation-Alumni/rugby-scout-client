@@ -5,13 +5,20 @@ import Adapter from 'enzyme-adapter-react-16';
 import 'jest';
 
 Enzyme.configure({ adapter: new Adapter });
-import {SearchResultsContainer} from './search-results';
+import SearchResultsContainer from './search-results';
 
-describe('Auth Form Component', () =>{
+describe('SearchResultsContainer Component', () => {
 
-  test('Auth form component exists', () => {
+  test('SearchResultsContainer component exists', () => {
+    const result = {
+      imageSrc: '',
+      firstName: '',
+      lastName: '',
+    };
 
-    let wrapper = Enzyme.shallow(<SearchResultsContainer />);
+    const results = [result];
+
+    let wrapper = Enzyme.shallow(<SearchResultsContainer results={results} />);
 
     expect(wrapper.exists()).toBeTruthy();
   });

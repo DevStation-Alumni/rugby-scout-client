@@ -1,20 +1,20 @@
 import {
-  fetchPlayersBegin,
-  fetchPlayersSuccess,
-  fetchPlayersFailure,
+  fetchResultsBegin,
+  fetchResultsSuccess,
+  fetchResultsFailure,
 } from '../search-actions';
 
 describe('search actions', () => {
-  test('fetch players begin should return an object with type', () => {
-    const actual = fetchPlayersBegin();
+  test('fetch results begin should return an object with type', () => {
+    const actual = fetchResultsBegin();
 
     expect(typeof actual).toBe('object');
     expect(actual.type).toBeDefined();
   });
 
-  test('fetch players begin should return a type "FETCH_PLAYERS_BEGIN"', () => {
-    const actual = fetchPlayersBegin();
-    const expected = 'FETCH_PLAYERS_BEGIN';
+  test('fetch results begin should return a type "FETCH_RESULTS_BEGIN"', () => {
+    const actual = fetchResultsBegin();
+    const expected = 'FETCH_RESULTS_BEGIN';
 
     expect(actual.type).toBe(expected);
   });
