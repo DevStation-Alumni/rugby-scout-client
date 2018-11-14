@@ -1,10 +1,9 @@
 import {
   fetchResultsBegin,
   fetchResultsSuccess,
-  fetchResultsFailure,
 } from '../search-actions';
 
-describe('search actions', () => {
+describe('synchronous search actions', () => {
   test('fetch results begin should return an object with type', () => {
     const actual = fetchResultsBegin();
 
@@ -17,5 +16,21 @@ describe('search actions', () => {
     const expected = 'FETCH_RESULTS_BEGIN';
 
     expect(actual.type).toBe(expected);
+  });
+
+  test('fetch results success should return a type "FETCH_RESULTS_SUCCESS"', () => {
+    const results = [];
+    const actual = fetchResultsSuccess(results);
+    const expected = 'FETCH_RESULTS_SUCCESS';
+
+    expect(actual.type).toBe(expected);
+  });
+
+  test('fetch results success should return a payload of results', () => {
+    const results = [1, 2, 3];
+    const actual = fetchResultsSuccess(results);
+    const expected = [1, 2, 3];
+
+    expect(actual.payload).toEqual(expected);
   });
 });
