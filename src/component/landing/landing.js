@@ -1,6 +1,7 @@
 import React from 'react';
 import { Image, Grid, Col, Row } from 'react-bootstrap';
 
+import ActionButton from '../action-button';
 
 export default class LandingContainer extends React.Component {
   constructor(props) {
@@ -35,6 +36,9 @@ export default class LandingContainer extends React.Component {
               </Col>
               <Col xs={12} sm={8}>
                 <p> this is where our buttons will go</p>
+                <ActionButton src="http://placehold.it/250x250" />
+                <ActionButton src="http://placehold.it/250x250" />
+                <ActionButton src="http://placehold.it/250x250" />
               </Col>
             </Row>
           </Grid>

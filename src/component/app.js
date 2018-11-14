@@ -11,12 +11,17 @@ import AboutContainer from './about/index';
 import CustomNav from './navbar/index';
 
 import * as route from '../actions/route';
-import {cookieFetch, cookieDelete} from '../lib/util';
+import {
+  fetchPlayersBegin,
+  fetchPlayersSuccess,
+  fetchPlayersFailure,
+} from '../actions/search-actions';
+import { cookieFetch, cookieDelete } from '../lib/util';
 
 
 export class App extends React.Component {
-  
-  componentDidMount(){
+
+  componentDidMount() {
     const token = cookieFetch('token');
     if (token) {
       localStorage.setItem('token', token);
@@ -33,10 +38,11 @@ export class App extends React.Component {
               <CustomNav actions={this.props.actions} />
             </header>
             <MemoryRouter>
-              <Switch location={{ pathname: this.props.route }} > 
+              <Switch location={{ pathname: this.props.route }} >
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
-                <Route path='/search-results' component={SearchResultsContainer} />
+                {/* <Route path='/search-results' component={SearchResultsContainer} /> */}
+                <Route path='/search-results' render={(props) => <SearchResultsContainer {...props} results={this.props.results} />} />
                 <Route path='/profile/me' component={ProfileContainer} />
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
@@ -53,6 +59,7 @@ export class App extends React.Component {
 
 const mapStateToProps = state => ({
   route: state.route,
+  results: state.results,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -62,6 +69,8 @@ const mapDispatchToProps = dispatch => ({
     goToLogin: () => dispatch(route.switchRoute('/login')),
     goToSignup: () => dispatch(route.switchRoute('/signup')),
     goToLanding: () => dispatch(route.switchRoute('/')),
+    fetchPlayersBegin: () => dispatch(fetchPlayersBegin()),
+    fetchPlayersSuccess: players => dispatch(fetchPlayersSuccess(players)),
   },
 });
 
