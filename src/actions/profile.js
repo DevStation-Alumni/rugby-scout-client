@@ -14,7 +14,7 @@ export const profileCreate = profile => ({
 
 export const profileFetchRequest = () => (dispatch, getState) => {
   let { auth } = getState();
-  return superagent.get(`${__API_URL__}/profiles/me`)
+  return superagent.get(`${__API_URL__}/api/v1/profile/`)
     .set('Authorization', `Bearer ${auth}`)
     .then(res => {
       dispatch(profileSet(res.body));
@@ -25,7 +25,14 @@ export const profileFetchRequest = () => (dispatch, getState) => {
 export const profileCreateRequest = (profile) => (dispatch, getState) => {
   let { auth } = getState();
 
-  return superagent.post(`${__API_URL__}/profiles`)
+  return superagent.post(`${__API_URL__}/api/v1/profile`)
     .set('Authorization', `Bearer ${auth}`)
-    .field('bio')
+    // .field('bio', profile.bio)
+    .attach('profilePhoto', profile.profilePhoto)
+    .then(res => {
+      localStorage.userId = res.body._id;
+      dispatch(profileCreate(res.body));
+      return res;
+    });
 };
+

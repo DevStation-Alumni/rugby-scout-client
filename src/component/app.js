@@ -6,11 +6,12 @@ import LandingContainer from './landing/landing';
 import AuthContainer from './auth-form/auth-form';
 import SearchResultsContainer from './search-results/search-results';
 import ProfileContainer from './profile/profile';
-import AboutContainer from './about/index';
-import CustomNav from './navbar/index';
+import AboutContainer from './about/about';
+import CustomNav from './navbar/navbar';
 
 import * as route from '../actions/route';
 import { fetchResultsRequest } from '../actions/search-actions';
+import * as profileActions from '../actions/profile';
 import { cookieFetch, cookieDelete } from '../lib/util';
 
 
@@ -37,7 +38,7 @@ export class App extends React.Component {
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
                 <Route path='/search-results' render={(props) => <SearchResultsContainer {...props} results={this.props.results} />} />
-                <Route path='/profile/me' component={ProfileContainer} />
+                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} />} />
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
                 <Route path='/' render={(props) => <LandingContainer {...props} api={this.props.api} />} />
@@ -69,6 +70,11 @@ const mapDispatchToProps = dispatch => ({
   },
   api: {
     fetchResultsRequest: query => dispatch(fetchResultsRequest(query)),
+  },
+  profileAction:
+  {
+    createProfile: (profile) => dispatch(profileActions.profileCreateRequest(profile)),
+    fetchProfile: (profile) => dispatch(profileActions.profileFetchRequest(profile)),
   },
 });
 

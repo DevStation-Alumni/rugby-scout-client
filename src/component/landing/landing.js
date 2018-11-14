@@ -1,6 +1,6 @@
 import React from 'react';
 import { Image, Grid, Col, Row } from 'react-bootstrap';
-import Slideshow from '../slideshow/index.js';
+import Slideshow from '../slideshow/slideshow.js';
 
 import ActionButton from '../action-button/actionButton';
 
