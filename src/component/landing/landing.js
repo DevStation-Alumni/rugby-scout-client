@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Grid, Col, Row } from 'react-bootstrap';
 import Slideshow from '../slideshow/index.js';
 
-import ActionButton from '../action-button';
+import ActionButton from '../action-button/actionButton';
 
 export default class LandingContainer extends React.Component {
   constructor(props) {
