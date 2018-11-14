@@ -8,10 +8,11 @@ import LandingContainer from './landing/landing';
 import AuthContainer from './auth-form/auth-form';
 import SearchResultsContainer from './search-results/search-results';
 import ProfileContainer from './profile/profile';
-import AboutContainer from './about/index';
-import CustomNav from './navbar/index';
+import AboutContainer from './about/about';
+import CustomNav from './navbar/navbar';
 
 import * as route from '../actions/route';
+import * as profileActions from '../actions/profile';
 import { cookieFetch, cookieDelete } from '../lib/util';
 
 
@@ -38,7 +39,7 @@ export class App extends React.Component {
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
                 <Route path='/search-results' component={SearchResultsContainer} />
-                <Route path='/profile/me' component={ProfileContainer} />
+                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} />} />
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
                 <Route path='/' component={LandingContainer} />
@@ -65,6 +66,12 @@ const mapDispatchToProps = dispatch => ({
     goToLanding: () => dispatch(route.switchRoute('/')),
     goToProfile: () => dispatch(route.switchRoute('/profile/me')),
   },
+  profileAction:
+  {
+    createProfile: (profile) => dispatch(profileActions.profileCreateRequest(profile)),
+    fetchProfile: (profile) => dispatch(profileActions.profileFetchRequest(profile)),
+  },
+
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

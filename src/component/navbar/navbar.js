@@ -11,7 +11,7 @@ export default class CustomNav extends React.Component {
   }
 
   render() {
-    let { goToAbout, goToLanding, goToLogin, goToSignup } = this.props.actions;
+    let { goToAbout, goToLanding, goToLogin, goToSignup, goToProfile } = this.props.actions;
     return (
       <Navbar className="sticky-nav" default collapseOnSelect>
         <Navbar.Header>
@@ -32,7 +32,7 @@ export default class CustomNav extends React.Component {
             <NavItem eventKey={2} onClick={goToAbout} >About</NavItem>
             {renderIf(!localStorage.token, <NavItem eventKey={3} onClick={goToLogin} >Login</NavItem>)}
             {renderIf(!localStorage.token, <NavItem eventKey={4} onClick={goToSignup} >Register</NavItem>)}
-            {renderIf(localStorage.token, <NavItem eventKey={5} onClick={goToLogin} >My Profile</NavItem>)}
+            {renderIf(localStorage.token, <NavItem eventKey={5} onClick={goToProfile} >My Profile</NavItem>)}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

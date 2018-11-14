@@ -18,3 +18,23 @@ export const cookieFetch = key => {
 export const renderIf = (test, component) => {
   return test ? component : null;
 };
+
+/***********************************
+*     AWS Upload Util     *
+************************************/
+
+export const photoToDataUrl = file => {
+  return new Promise((resolve, reject) => {
+    let reader = new FileReader();
+
+    reader.addEventListener('load', () => {
+      resolve(reader.result);
+    });
+
+    reader.addEventListener('error', () => {
+      reject(reader.error);
+    });
+
+    return file ? reader.readAsDataURL(file) : reject(new Error('USEAGE ERROR: Must provide a file'));
+  });
+};
