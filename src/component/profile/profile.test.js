@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import 'jest';
 
 Enzyme.configure({ adapter: new Adapter });
-import {ProfileContainer} from './profile';
+import ProfileContainer from './profile';
 
 describe('Profile Component', () =>{
 

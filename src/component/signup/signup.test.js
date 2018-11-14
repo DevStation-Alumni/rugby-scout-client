@@ -17,21 +17,6 @@ describe('Signup form component', () =>{
     expect(wrapper.exists()).toBeTruthy();
   });
 
-  test('should show changes on username input', () => {
-  
-    let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
-    let wrapper = Enzyme.shallow(<SignupForm />);
-    const event = {target: {
-      name: 'username',
-      value: 'Slardybartfast',
-    }};
-
-    wrapper.find('input[name="username"]').simulate('change', event);
-
-    expect(onChange.callCount).toBe(1);
-    onChange.restore();
-  });
-
   test('should show changes on password input', () => {
   
     let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
@@ -107,7 +92,7 @@ describe('Signup form component', () =>{
     wrapper.find('input[name="password"]').simulate('change', event);
 
     expect(onChange.callCount).toBe(1);
-    expect(wrapper.state().passwordError).toBe('email field cannot be empty');
+    expect(wrapper.state().passwordError).toBe('password field cannot be empty');
     onChange.restore();
   });
 
@@ -124,7 +109,7 @@ describe('Signup form component', () =>{
     wrapper.find('input[name="password"]').simulate('change', event);
 
     expect(onChange.callCount).toBe(1);
-    expect(wrapper.state().passwordError).toBe('password is not a valid password');
+    expect(wrapper.state().passwordError).toBe('password can only contain numbers and letters');
     onChange.restore();
   });
 });

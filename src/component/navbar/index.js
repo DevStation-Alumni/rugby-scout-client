@@ -1,17 +1,17 @@
 import React from 'react';
 import { Navbar, Nav, NavItem, Image, FormGroup, FormControl, Button } from 'react-bootstrap';
 import './_navbar.scss';
+import { renderIf } from '../../lib/util';
 
 export default class CustomNav extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-
-    };
+    this.state = {};
   }
 
   render() {
+    let { goToAbout, goToLanding, goToLogin, goToSignup } = this.props.actions;
     return (
       <Navbar className="sticky-nav" default collapseOnSelect>
         <Navbar.Header>
@@ -28,14 +28,11 @@ export default class CustomNav extends React.Component {
             <Button type="submit">Submit</Button>
           </Navbar.Form>
           <Nav pullRight>
-            <NavItem eventKey={1} onClick={this.props.actions.goToLanding} >
-              Home</NavItem>
-            <NavItem eventKey={2} onClick={this.props.actions.goToAbout} >
-              About</NavItem>
-            <NavItem eventKey={3} onClick={this.props.actions.goToLogin}>
-              Login</NavItem>
-            <NavItem eventKey={4} onClick={this.props.actions.goToSignup} >
-              Register</NavItem>
+            <NavItem eventKey={1} onClick={goToLanding} >Home</NavItem>
+            <NavItem eventKey={2} onClick={goToAbout} >About</NavItem>
+            {renderIf(!localStorage.token, <NavItem eventKey={3} onClick={goToLogin} >Login</NavItem>)}
+            {renderIf(!localStorage.token, <NavItem eventKey={4} onClick={goToSignup} >Register</NavItem>)}
+            {renderIf(localStorage.token, <NavItem eventKey={5} onClick={goToLogin} >My Profile</NavItem>)}
           </Nav>
         </Navbar.Collapse>
       </Navbar>

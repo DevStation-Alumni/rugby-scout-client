@@ -15,16 +15,16 @@ describe('Login Component', () => {
     expect(wrapper.exists()).toBeTruthy();
   });
 
-  test('should show changes on username input', () => {
+  test('should show changes on email input', () => {
   
     let onChange = sinon.spy(LoginForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<LoginForm />);
     const event = {target: {
-      name: 'username',
-      value: 'Slardybartfast',
+      name: 'email',
+      value: 'Slardy@bartfast.com',
     }};
 
-    wrapper.find('input[name="username"]').simulate('change', event);
+    wrapper.find('input[name="email"]').simulate('change', event);
 
     expect(onChange.callCount).toBe(1);
     onChange.restore();

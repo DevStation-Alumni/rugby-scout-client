@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { MemoryRouter, Switch, Route, BrowserRouter } from 'react-router-dom';
 
 
+
 import LandingContainer from './landing/landing';
 import AuthContainer from './auth-form/auth-form';
 import SearchResultsContainer from './search-results/search-results';
@@ -69,6 +70,7 @@ const mapDispatchToProps = dispatch => ({
     goToLogin: () => dispatch(route.switchRoute('/login')),
     goToSignup: () => dispatch(route.switchRoute('/signup')),
     goToLanding: () => dispatch(route.switchRoute('/')),
+    goToProfile: () => dispatch(route.switchRoute('/profile/me')),
     fetchPlayersBegin: () => dispatch(fetchPlayersBegin()),
     fetchPlayersSuccess: players => dispatch(fetchPlayersSuccess(players)),
   },
