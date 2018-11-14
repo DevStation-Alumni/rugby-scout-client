@@ -27,7 +27,7 @@ export default class ProfilePhoto extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.props);
-    this.props.profileAction.createProfilePhoto(this.state);
+    this.props.photoSubmit(this.state);
   }
   render() {
     return (

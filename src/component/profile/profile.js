@@ -1,4 +1,5 @@
 import React from 'react';
+import ProfilePhoto from '../profile-photo/profile-photo'
 
 
 export default class ProfileContainer extends React.Component {
@@ -30,6 +31,7 @@ export default class ProfileContainer extends React.Component {
   render() {
     return (
       <section className="profile">
+        <ProfilePhoto photoSubmit={this.props.photoSubmit} />
         <form onSubmit={this.handleSubmit}>
           <input
             name='firstName'
