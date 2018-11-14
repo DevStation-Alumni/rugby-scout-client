@@ -22,7 +22,7 @@ export default class LoginForm extends React.Component {
     event.preventDefault();
 
     this.props.loginRequest({
-      username: this.state.username,
+      email: this.state.email,
       password: this.state.password,
     });
   }
@@ -31,7 +31,7 @@ export default class LoginForm extends React.Component {
     return (
       <div>
         <form className="login-form" onSubmit={this.handleSubmit}>
-          <input name='username' type='text' placeholder='username' value={this.state.username} onChange={this.handleChange} />
+          <input name='email' type='text' placeholder='email' value={this.state.email} onChange={this.handleChange} />
           <input name='password' type='password' placeholder='password' value={this.state.password} onChange={this.handleChange} />
           <button type="submit">Login</button>
         </form>

@@ -11,9 +11,19 @@ import AboutContainer from './about/index';
 import CustomNav from './navbar/index';
 
 import * as route from '../actions/route';
+import {cookieFetch, cookieDelete} from '../lib/util';
 
 
 export class App extends React.Component {
+  
+  componentDidMount(){
+    const token = cookieFetch('token');
+    if (token) {
+      localStorage.setItem('token', token);
+      cookieDelete('token');
+    }
+  }
+
   render() {
     return (
       <section className="app">
@@ -27,8 +37,8 @@ export class App extends React.Component {
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
                 <Route path='/search-results' component={SearchResultsContainer} />
-                <Route path='/profile' component={ProfileContainer} />
                 <Route path='/profile/me' component={ProfileContainer} />
+                <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
                 <Route path='/' component={LandingContainer} />
               </Switch>
