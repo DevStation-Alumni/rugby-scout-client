@@ -2,7 +2,7 @@ import {
   fetchPlayersBegin,
   fetchPlayersSuccess,
   fetchPlayersFailure,
-} from './search-actions';
+} from '../search-actions';
 
 describe('search actions', () => {
   test('fetch players begin should return an object with type', () => {
