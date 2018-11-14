@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 
-export class ProfileContainer extends React.Component {
-  constructor(props){
+export default class ProfileContainer extends React.Component {
+  constructor(props) {
     super(props);
   }
 
@@ -16,13 +16,3 @@ export class ProfileContainer extends React.Component {
   }
 
 }
-
-const mapStateToProps = state => {
-  return {};
-};
-
-const mapDispatchToProps = dispatch => ({
-
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainer);
