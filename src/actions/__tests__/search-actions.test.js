@@ -1,6 +1,11 @@
+import configureMockStore from 'redux-mock-store';
+import thunk from '../../lib/middleware/redux-thunk';
+
 import {
   fetchResultsBegin,
   fetchResultsSuccess,
+  fetchResultsFailure,
+  fetchResultsRequest,
 } from '../search-actions';
 
 describe('synchronous search actions', () => {
