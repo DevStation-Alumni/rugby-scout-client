@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image, Grid, Col, Row } from 'react-bootstrap';
+import Slideshow from '../slideshow/index.js';
 
 
 export default class LandingContainer extends React.Component {
@@ -12,11 +13,9 @@ export default class LandingContainer extends React.Component {
       <section className="profile">
         <div>
           <Grid>
-            <h2>News</h2>
             <Row >
               <Col xs={12} sm={12} className="main-section">
-                <p>As a college recruiter I want to use rugby scout to get stats and media related to a player so I can identify talent
-                </p>
+                <Slideshow className="slideshow" />
               </Col>
             </Row>
             <Row>
