@@ -2,8 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { MemoryRouter, Switch, Route, BrowserRouter } from 'react-router-dom';
 
-
-
 import LandingContainer from './landing/landing';
 import AuthContainer from './auth-form/auth-form';
 import SearchResultsContainer from './search-results/search-results';
@@ -12,6 +10,7 @@ import AboutContainer from './about/about';
 import CustomNav from './navbar/navbar';
 
 import * as route from '../actions/route';
+import { fetchResultsRequest } from '../actions/search-actions';
 import * as profileActions from '../actions/profile';
 import { cookieFetch, cookieDelete } from '../lib/util';
 
@@ -38,11 +37,11 @@ export class App extends React.Component {
               <Switch location={{ pathname: this.props.route }} >
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
-                <Route path='/search-results' component={SearchResultsContainer} />
+                <Route path='/search-results' render={(props) => <SearchResultsContainer {...props} results={this.props.results} />} />
                 <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} />} />
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
-                <Route path='/' component={LandingContainer} />
+                <Route path='/' render={(props) => <LandingContainer {...props} api={this.props.api} />} />
               </Switch>
             </MemoryRouter>
           </div>
@@ -55,6 +54,9 @@ export class App extends React.Component {
 
 const mapStateToProps = state => ({
   route: state.route,
+  results: state.search.results,
+  loading: state.search.loading,
+  error: state.search.error,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -66,12 +68,14 @@ const mapDispatchToProps = dispatch => ({
     goToLanding: () => dispatch(route.switchRoute('/')),
     goToProfile: () => dispatch(route.switchRoute('/profile/me')),
   },
+  api: {
+    fetchResultsRequest: query => dispatch(fetchResultsRequest(query)),
+  },
   profileAction:
   {
     createProfile: (profile) => dispatch(profileActions.profileCreateRequest(profile)),
     fetchProfile: (profile) => dispatch(profileActions.profileFetchRequest(profile)),
   },
-
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
