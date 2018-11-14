@@ -35,9 +35,9 @@ export default class LandingContainer extends React.Component {
               </Col>
               <Col xs={12} sm={8}>
                 <p> this is where our buttons will go</p>
-                <ActionButton src="http://placehold.it/250x250" />
-                <ActionButton src="http://placehold.it/250x250" />
-                <ActionButton src="http://placehold.it/250x250" />
+                <ActionButton src="http://placehold.it/250x250" api={this.props.api} query='player' />
+                <ActionButton src="http://placehold.it/250x250" api={this.props.api} query='coach' />
+                <ActionButton src="http://placehold.it/250x250" api={this.props.api} query='team' />
               </Col>
             </Row>
           </Grid>

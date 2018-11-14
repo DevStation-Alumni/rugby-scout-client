@@ -1,21 +1,40 @@
 import {
-  FETCH_PLAYERS_BEGIN,
-  FETCH_PLAYERS_SUCCESS,
+  FETCH_RESULTS_BEGIN,
+  FETCH_RESULTS_SUCCESS,
+  FETCH_RESULTS_FAILURE,
 } from '../actions/search-actions';
 
 const initialState = {
   results: [],
+  loading: false,
+  error: null,
 };
 
 export default (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case FETCH_PLAYERS_BEGIN:
-      return { ...state };
+    case FETCH_RESULTS_BEGIN:
+      return {
+        ...state,
+        loading: true,
+        error: null,
+      };
 
-    case FETCH_PLAYERS_SUCCESS:
-      return { ...state, results: payload };
+    case FETCH_RESULTS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        results: payload,
+      };
+
+    case FETCH_RESULTS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: payload,
+        items: [],
+      };
 
     default:
       return state;
