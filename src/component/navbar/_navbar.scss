@@ -7,8 +7,23 @@
 
 .navbar {
   margin-bottom: 3em;
-  background-color: #485467;
+  background-color: #5c687b;
 }
+.navbar-default .navbar-nav  { 
+  li {
+    a{
+      color: #ffffff;
+      &:hover{
+        color: #b3b5bf
+      }
+    }
+
+  }
+
+}
+
+
+
 @media (max-width: 767px) {
   .navbar-form {
     padding-top: 2.2em;
