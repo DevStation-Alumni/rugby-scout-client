@@ -12,17 +12,25 @@ import CustomNav from './navbar/navbar';
 import * as route from '../actions/route';
 import { fetchResultsRequest } from '../actions/search-actions';
 import * as profileActions from '../actions/profile';
-import { cookieFetch, cookieDelete } from '../lib/util';
+import * as authActions from '../actions/auth';
+import { cookieFetch, cookieDelete, tokenFetch } from '../lib/util';
 
 
 export class App extends React.Component {
 
   componentDidMount() {
-    const token = cookieFetch('token');
+    let token = cookieFetch('token');
+
     if (token) {
       localStorage.setItem('token', token);
       cookieDelete('token');
+      console.log(token);
+      this.props.actions.goToProfile();
     }
+    token = tokenFetch();
+    console.log(token);
+    this.props.authActions.login(token);
+
   }
 
   render() {
@@ -31,7 +39,7 @@ export class App extends React.Component {
         <BrowserRouter>
           <div>
             <header>
-              <CustomNav actions={this.props.actions} />
+              <CustomNav actions={this.props.actions} state={this.props}/>
             </header>
             <MemoryRouter>
               <Switch location={{ pathname: this.props.route }} >
@@ -53,6 +61,7 @@ export class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  auth: state.auth,
   route: state.route,
   results: state.search.results,
   loading: state.search.loading,
@@ -75,6 +84,10 @@ const mapDispatchToProps = dispatch => ({
   {
     createProfile: (profile) => dispatch(profileActions.profileCreateRequest(profile)),
     fetchProfile: (profile) => dispatch(profileActions.profileFetchRequest(profile)),
+  },
+  authActions:
+  {
+    login: token => dispatch(authActions.login(token)),
   },
 });
 
