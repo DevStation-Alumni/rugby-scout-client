@@ -1,0 +1,12 @@
+.carousel-container {
+  max-width: 900px;
+  height: 300px;
+  margin: auto;
+}
+
+@media (max-width: 900px) {
+  .carousel-container {
+    width: auto;
+    height: auto;
+  }
+}
