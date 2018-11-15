@@ -42,7 +42,7 @@ export class App extends React.Component {
         <BrowserRouter>
           <div>
             <header>
-              <CustomNav actions={this.props.actions} state={this.props} authActions={this.props.authActions}/>
+              <CustomNav actions={this.props.actions} state={this.props} authActions={this.props.authActions} />
             </header>
             <MemoryRouter>
               <Switch location={{ pathname: this.props.route }} >
@@ -95,7 +95,7 @@ const mapDispatchToProps = dispatch => ({
     login: token => dispatch(authActions.login(token)),
     logout: () => dispatch(authActions.logout()),
 
-
+  },
   profilePhotoActions:
   {
     createProfilePhoto: (profile) => dispatch(profilePhoto.profilePhotoRequest(profile)),
