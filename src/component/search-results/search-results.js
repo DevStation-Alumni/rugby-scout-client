@@ -11,7 +11,7 @@ export default class SearchResultsContainer extends React.Component {
     return results.map(item => {
       return (
         <li key={item._id}>
-          <Image src={item.imageUrl} responsive thumbnail />
+          <Image src={item.imageSrc} responsive thumbnail />
           <p>{item.firstName + ' ' + item.lastName}</p>
         </li>
       );

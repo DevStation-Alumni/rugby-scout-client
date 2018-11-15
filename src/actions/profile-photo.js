@@ -15,7 +15,6 @@ export const profilePhotoRequest = (profile) => (dispatch, getState) => {
     .set('Authorization', `Bearer ${auth}`)
     .attach('profilePhoto', profile.profilePhoto)
     .then(res => {
-      localStorage.userId = res.body._id;
       dispatch(photoCreate(res.body));
       return res;
     });
