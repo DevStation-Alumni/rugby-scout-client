@@ -85,9 +85,8 @@ const mapDispatchToProps = dispatch => ({
   },
   profileAction:
   {
-    createProfile: (profile) => dispatch(profileActions.profileCreateRequest(profile)),
-
-    fetchProfile: (profile) => dispatch(profileActions.profileFetchRequest(profile)),
+    updateProfile: (profile) => dispatch(profileActions.profileUpdateRequest(profile)),
+    fetchProfile: () => dispatch(profileActions.profileFetchRequest()),
   },
 
   authActions:

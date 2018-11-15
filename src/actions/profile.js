@@ -1,39 +1,39 @@
 'use strict';
 
 import superagent from 'superagent';
+import { statsSet } from '../actions/stats';
 
 export const profileSet = profile => ({
   type: 'PROFILE_SET',
   payload: profile,
 });
 
-export const profileCreate = profile => ({
-  type: 'PROFILE_CREATE',
+export const profileUpdate = profile => ({
+  type: 'PROFILE_UPDATE',
   payload: profile,
 });
 
-
-
 export const profileFetchRequest = () => (dispatch, getState) => {
   let { auth } = getState();
-  return superagent.get(`${__API_URL__}/api/v1/profile/`)
+
+  return superagent.get(`${__API_URL__}/api/v1/myprofile`)
     .set('Authorization', `Bearer ${auth}`)
     .then(res => {
-      dispatch(profileSet(res.body));
+      dispatch(profileSet(res.body.profile));
+      dispatch(statsSet(res.body.stats));
       return res;
     });
 };
 
 
-export const profileCreateRequest = (profile) => (dispatch, getState) => {
+export const profileUpdateRequest = (profile) => (dispatch, getState) => {
   let { auth } = getState();
 
-  return superagent.post(`${__API_URL__}/api/v1/profile`)
+  return superagent.put(`${__API_URL__}/api/v1/profile`)
     .set('Authorization', `Bearer ${auth}`)
     .send(profile)
     .then(res => {
-      localStorage.userId = res.body._id;
-      dispatch(profileCreate(res.body));
+      dispatch(profileUpdate(res.body));
       return res;
     });
 };
