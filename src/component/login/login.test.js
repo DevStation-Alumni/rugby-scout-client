@@ -63,5 +63,6 @@ describe('Login Component', () => {
 
     expect(onSubmit.callCount).toBe(1);
     expect(loginRequest.callCount).toBe(1);
+    onSubmit.restore();
   });
 });

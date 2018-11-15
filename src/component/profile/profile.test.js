@@ -6,6 +6,7 @@ import 'jest';
 
 Enzyme.configure({ adapter: new Adapter });
 import ProfileContainer from './profile';
+import ProfilePhoto from '../profile-photo/profile-photo';
 
 describe('Profile Component', () => {
 
@@ -14,6 +15,17 @@ describe('Profile Component', () => {
     let wrapper = Enzyme.shallow(<ProfileContainer />);
 
     expect(wrapper.exists()).toBeTruthy();
+  });
+
+  test('Profile local state should be defined', () => {
+    let wrapper = Enzyme.shallow(<ProfileContainer />);
+    const initialState = {
+      firstName: '',
+      lastName: '',
+      role: '',
+      bio: '',
+    };
+    expect(wrapper.state()).toEqual(initialState);
   });
 
   test('should show changes on firstName input', () => {
@@ -82,6 +94,25 @@ describe('Profile Component', () => {
 
     expect(onChange.callCount).toBe(1);
     onChange.restore();
+  });
+
+  test('should call prop function on submit', () => {
+    const onSubmit = sinon.spy(ProfileContainer.prototype, 'handleSubmit');
+
+    const profileAction = {
+      createProfile: sinon.fake(),
+    };
+
+    let wrapper = Enzyme.shallow(<ProfileContainer profileAction={profileAction} />);
+    const event = {
+      preventDefault: jest.fn(),
+    };
+
+    wrapper.find('form').simulate('submit', event);
+
+    expect(onSubmit.callCount).toBe(1);
+    expect(profileAction.createProfile.callCount).toBe(1);
+    onSubmit.restore();
   });
 
 });
