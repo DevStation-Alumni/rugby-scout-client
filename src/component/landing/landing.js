@@ -19,8 +19,9 @@ export default class LandingContainer extends React.Component {
                 <Slideshow className="slideshow" />
               </Col>
             </Row>
-            <Row>
-              <Col xs={12} sm={4} className="sidebar-section">
+            <Row className="landing-row-2">
+              <Col xs={0} sm={1}></Col>
+              <Col xs={12} sm={2} className="sidebar-section">
                 <ul>
                   <li>Player 1</li>
                   <li>Player 2</li>
@@ -34,11 +35,11 @@ export default class LandingContainer extends React.Component {
                 </ul>
               </Col>
               <Col xs={12} sm={8}>
-                <p> this is where our buttons will go</p>
-                <ActionButton src="http://placehold.it/250x250" api={this.props.api} query='player' />
-                <ActionButton src="http://placehold.it/250x250" api={this.props.api} query='coach' />
-                <ActionButton src="http://placehold.it/250x250" api={this.props.api} query='team' />
+                <ActionButton className="landing-buttons" src="https://s3.amazonaws.com/rugbyscout-two/landingbuttons/coach.jpg" api={this.props.api} query='player' />
+                <ActionButton className="landing-buttons" src="https://s3.amazonaws.com/rugbyscout-two/landingbuttons/player.jpg" api={this.props.api} query='coach' />
+                <ActionButton className="landing-buttons" src="https://s3.amazonaws.com/rugbyscout-two/landingbuttons/team.jpg" api={this.props.api} query='team' />
               </Col>
+              <Col xs={0} sm={1}></Col>
             </Row>
           </Grid>
         </div>
