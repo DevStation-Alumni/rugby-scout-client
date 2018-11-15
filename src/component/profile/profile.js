@@ -6,7 +6,12 @@ export default class ProfileContainer extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      firstName: '',
+      lastName: '',
+      role: '',
+      bio: '',
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -17,7 +22,6 @@ export default class ProfileContainer extends React.Component {
       .then(res => {
         this.setState(res.body);
       });
-
   }
 
   handleChange(e) {
@@ -68,7 +72,10 @@ export default class ProfileContainer extends React.Component {
           <button type="submit">submit</button>
         </form>
 
+        {/* PROFILE DETAIL VIEW CAN GO HERE */}
 
+        {/* STATS FORM CAN GO HERE */}
+        {/* STATS VIEW CAN GO HERE */}
       </section>
     );
   }
