@@ -33,7 +33,6 @@ export const profileUpdateRequest = (profile) => (dispatch, getState) => {
     .set('Authorization', `Bearer ${auth}`)
     .send(profile)
     .then(res => {
-      localStorage.userId = res.body._id;
       dispatch(profileUpdate(res.body));
       return res;
     });
