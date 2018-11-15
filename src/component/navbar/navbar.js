@@ -13,7 +13,7 @@ export default class CustomNav extends React.Component {
   render() {
     let { goToAbout, goToLanding, goToLogin, goToSignup, goToProfile } = this.props.actions;
     return (
-      <Navbar className="sticky-nav" default collapseOnSelect>
+      <Navbar className="sticky-nav" inverse collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
             <Image src="https://s3.amazonaws.com/rugbyscout-two/rslogoonline.svg" className="logo" />
