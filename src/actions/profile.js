@@ -10,7 +10,7 @@ export const profileSet = profile => ({
 export const profileUpdate = profile => ({
   type: 'PROFILE_UPDATE',
   payload: profile,
-}); 
+});
 
 export const profileFetchRequest = () => (dispatch, getState) => {
   let { auth } = getState();
@@ -31,7 +31,6 @@ export const profileUpdateRequest = (profile) => (dispatch, getState) => {
     .set('Authorization', `Bearer ${auth}`)
     .send(profile)
     .then(res => {
-      localStorage.userId = res.body._id;
       dispatch(profileUpdate(res.body));
       return res;
     });
