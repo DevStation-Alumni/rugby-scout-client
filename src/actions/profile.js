@@ -12,11 +12,10 @@ export const profileUpdate = profile => ({
   payload: profile,
 });
 
-
-
 export const profileFetchRequest = () => (dispatch, getState) => {
   let { auth } = getState();
-  return superagent.get(`${__API_URL__}/api/v1/profile/`)
+
+  return superagent.get(`${__API_URL__}/api/v1/myprofile`)
     .set('Authorization', `Bearer ${auth}`)
     .then(res => {
       dispatch(profileSet(res.body));

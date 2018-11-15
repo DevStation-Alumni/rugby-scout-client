@@ -1,25 +1,29 @@
 import React from 'react';
-import ProfilePhoto from '../profile-photo/profile-photo'
+import ProfilePhoto from '../profile-photo/profile-photo';
 
 
 export default class ProfileContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.profile ?
-      { ...props.profile } :
-      { firstName: '', lastName: '', role: '', bio: '' };
 
+    this.state = {};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.profileAction.fetchProfile()
+      .then(res => {
+        this.setState(res.body);
+      });
+
   }
 
   handleChange(e) {
     let { name, value } = e.target;
     this.setState({ [name]: value });
   }
-
-
 
   handleSubmit(e) {
     e.preventDefault();
@@ -37,14 +41,14 @@ export default class ProfileContainer extends React.Component {
             name='firstName'
             type='text'
             placeholder='first name'
-            value={this.state.firstname}
+            value={this.state.firstName}
             onChange={this.handleChange}
           />
           <input
             name='lastName'
             type='text'
             placeholder='last name'
-            value={this.state.lastname}
+            value={this.state.lastName}
             onChange={this.handleChange}
           />
           <input
