@@ -20,7 +20,7 @@ export default class ProfileContainer extends React.Component {
   componentDidMount() {
     this.props.profileAction.fetchProfile()
       .then(res => {
-        this.setState(res.body);
+        this.setState(res.body.profile);
       });
   }
 
