@@ -1,5 +1,4 @@
-import { statsUpdate, statsUpdateRequest, statsSet } from './stats';
-import * as utils from '../lib/util';
+import { statsUpdate, statsUpdateRequest, statsSet } from '../stats';
 
 describe('statsSet action', () => {
   let mockStats = {stat: '1'};
