@@ -1,17 +1,27 @@
 import React from 'react';
-import ProfilePhoto from '../profile-photo/profile-photo'
+import ProfilePhoto from '../profile-photo/profile-photo';
 
 
 export default class ProfileContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = props.profile ?
-      { ...props.profile } :
-      { firstName: '', lastName: '', role: '', bio: '' };
 
+    this.state = {
+      firstName: '',
+      lastName: '',
+      role: '',
+      bio: '',
+    };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.profileAction.fetchProfile()
+      .then(res => {
+        this.setState(res.body);
+      });
   }
 
   handleChange(e) {
@@ -19,12 +29,10 @@ export default class ProfileContainer extends React.Component {
     this.setState({ [name]: value });
   }
 
-
-
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state);
-    this.props.profileAction.createProfile(this.state);
+    this.props.profileAction.updateProfile(this.state);
     console.log(this.state);
   }
 
@@ -37,14 +45,14 @@ export default class ProfileContainer extends React.Component {
             name='firstName'
             type='text'
             placeholder='first name'
-            value={this.state.firstname}
+            value={this.state.firstName}
             onChange={this.handleChange}
           />
           <input
             name='lastName'
             type='text'
             placeholder='last name'
-            value={this.state.lastname}
+            value={this.state.lastName}
             onChange={this.handleChange}
           />
           <input
@@ -64,7 +72,10 @@ export default class ProfileContainer extends React.Component {
           <button type="submit">submit</button>
         </form>
 
+        {/* PROFILE DETAIL VIEW CAN GO HERE */}
 
+        {/* STATS FORM CAN GO HERE */}
+        {/* STATS VIEW CAN GO HERE */}
       </section>
     );
   }

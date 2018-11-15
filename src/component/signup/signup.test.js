@@ -9,7 +9,7 @@ jest.mock('validator');
 Enzyme.configure({ adapter: new Adapter });
 import SignupForm from './signup.js';
 
-describe('Signup form component', () =>{
+describe('Signup form component', () => {
 
   test('Signup form component exists', () => {
     let wrapper = Enzyme.shallow(<SignupForm />);
@@ -18,13 +18,15 @@ describe('Signup form component', () =>{
   });
 
   test('should show changes on password input', () => {
-  
+
     let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<SignupForm />);
-    const event = {target: {
-      name: 'password',
-      value: 'Slardybartfast',
-    }};
+    const event = {
+      target: {
+        name: 'password',
+        value: 'Slardybartfast',
+      }
+    };
 
     wrapper.find('input[name="password"]').simulate('change', event);
 
@@ -33,13 +35,15 @@ describe('Signup form component', () =>{
   });
 
   test('should show changes on email input', () => {
-  
+
     let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<SignupForm />);
-    const event = {target: {
-      name: 'email',
-      value: 'Slardybartfast@gmail.com',
-    }};
+    const event = {
+      target: {
+        name: 'email',
+        value: 'Slardybartfast@gmail.com',
+      }
+    };
 
     wrapper.find('input[name="email"]').simulate('change', event);
 
@@ -48,13 +52,15 @@ describe('Signup form component', () =>{
   });
 
   test('should show validator error on email input', () => {
-  
+
     let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
 
     let wrapper = Enzyme.shallow(<SignupForm />);
-    const event = {target: {
-      name: 'email',
-    }};
+    const event = {
+      target: {
+        name: 'email',
+      }
+    };
 
     wrapper.find('input[name="email"]').simulate('change', event);
 
@@ -64,14 +70,16 @@ describe('Signup form component', () =>{
   });
 
   test('should show validator error on bad email input', () => {
-  
+
     let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
 
     let wrapper = Enzyme.shallow(<SignupForm />);
-    const event = {target: {
-      name: 'email',
-      value: 'bad',
-    }};
+    const event = {
+      target: {
+        name: 'email',
+        value: 'bad',
+      }
+    };
 
     wrapper.find('input[name="email"]').simulate('change', event);
 
@@ -81,13 +89,15 @@ describe('Signup form component', () =>{
   });
 
   test('should show validator error on password input', () => {
-  
+
     let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
 
     let wrapper = Enzyme.shallow(<SignupForm />);
-    const event = {target: {
-      name: 'password',
-    }};
+    const event = {
+      target: {
+        name: 'password',
+      }
+    };
 
     wrapper.find('input[name="password"]').simulate('change', event);
 
@@ -97,19 +107,38 @@ describe('Signup form component', () =>{
   });
 
   test('should show validator error on bad password input', () => {
-  
+
     let onChange = sinon.spy(SignupForm.prototype, 'handleChange');
 
     let wrapper = Enzyme.shallow(<SignupForm />);
-    const event = {target: {
-      name: 'password',
-      value: 'bad',
-    }};
+    const event = {
+      target: {
+        name: 'password',
+        value: 'bad',
+      }
+    };
 
     wrapper.find('input[name="password"]').simulate('change', event);
 
     expect(onChange.callCount).toBe(1);
     expect(wrapper.state().passwordError).toBe('password can only contain numbers and letters');
     onChange.restore();
+  });
+
+  test('should call prop function on submit', () => {
+    let onSubmit = sinon.spy(SignupForm.prototype, 'handleSubmit');
+
+    let signupRequest = sinon.fake();
+
+    let wrapper = Enzyme.shallow(<SignupForm signupRequest={signupRequest} />);
+    const event = {
+      preventDefault: jest.fn(),
+    };
+
+    wrapper.find('form').simulate('submit', event);
+
+    expect(onSubmit.callCount).toBe(1);
+    expect(signupRequest.callCount).toBe(1);
+    onSubmit.restore();
   });
 });

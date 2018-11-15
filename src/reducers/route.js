@@ -1,8 +1,7 @@
 export default (state = '/', { type, payload }) => {
   switch (type) {
     case 'LANDING': return '/';
-    case 'SIGNUP': return '/signup';
-    case 'LOGIN': return '/login';
+    case 'LOGOUT': return '/';
     case 'SEARCH_RESULTS': return '/search-results';
     case 'PROFILE': return '/profile';
     case 'ABOUT': return '/about';

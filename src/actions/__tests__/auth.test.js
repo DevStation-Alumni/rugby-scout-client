@@ -1,5 +1,5 @@
-import { login, logout, loginRequest, signupRequest } from './auth';
-import * as utils from '../lib/util';
+import { login, logout, loginRequest, signupRequest } from '../auth';
+import * as utils from '../../lib/util';
 
 describe('login action', () => {
   let mockToken = 'token';
@@ -18,7 +18,7 @@ describe('login action', () => {
   });
 });
 
-describe('logout action', () =>{
+describe('logout action', () => {
 
   test('should show that logout action returns an object', () => {
     let actual = logout();
@@ -33,14 +33,14 @@ describe('logout action', () =>{
   });
 });
 
-describe('Signup Request Action', () =>{
+describe('Signup Request Action', () => {
 
   test('', () => {
 
   });
 });
 
-describe('Login Request Action', () =>{
+describe('Login Request Action', () => {
 
   test('', () => {
 
