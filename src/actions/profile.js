@@ -1,6 +1,7 @@
 'use strict';
 
 import superagent from 'superagent';
+import { statsSet } from '../actions/stats';
 
 export const profileSet = profile => ({
   type: 'PROFILE_SET',
@@ -18,7 +19,8 @@ export const profileFetchRequest = () => (dispatch, getState) => {
   return superagent.get(`${__API_URL__}/api/v1/myprofile`)
     .set('Authorization', `Bearer ${auth}`)
     .then(res => {
-      dispatch(profileSet(res.body));
+      dispatch(profileSet(res.body.profile));
+      dispatch(statsSet(res.body.stats));
       return res;
     });
 };
