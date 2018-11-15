@@ -5,7 +5,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import 'jest';
 
 Enzyme.configure({ adapter: new Adapter });
-import AboutContainer from './index.js';
+import AboutContainer from './about';
 
 describe('About Component', () => {
 
