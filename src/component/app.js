@@ -15,6 +15,9 @@ import * as profileActions from '../actions/profile';
 import * as authActions from '../actions/auth';
 import { cookieFetch, cookieDelete, tokenFetch } from '../lib/util';
 
+import * as profilePhoto from '../actions/profile-photo';
+
+
 
 export class App extends React.Component {
 
@@ -46,7 +49,7 @@ export class App extends React.Component {
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
                 <Route path='/search-results' render={(props) => <SearchResultsContainer {...props} results={this.props.results} />} />
-                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} />} />
+                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto} />} />
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
                 <Route path='/' render={(props) => <LandingContainer {...props} api={this.props.api} />} />
@@ -83,12 +86,19 @@ const mapDispatchToProps = dispatch => ({
   profileAction:
   {
     createProfile: (profile) => dispatch(profileActions.profileCreateRequest(profile)),
+
     fetchProfile: (profile) => dispatch(profileActions.profileFetchRequest(profile)),
   },
+
   authActions:
   {
     login: token => dispatch(authActions.login(token)),
     logout: () => dispatch(authActions.logout()),
+
+
+  profilePhotoActions:
+  {
+    createProfilePhoto: (profile) => dispatch(profilePhoto.profilePhotoRequest(profile)),
 
   },
 });
