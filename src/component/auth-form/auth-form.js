@@ -6,7 +6,7 @@ import SignupForm from '../signup/signup';
 import LoginForm from '../login/login';
 
 export class AuthFormContainer extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
   }
@@ -18,19 +18,19 @@ export class AuthFormContainer extends React.Component {
     return (
       <section className="auth-form">
         {this.props.route === '/signup' ?
-          <SignupForm signupRequest={this.props.signupRequest}/> :
-          <LoginForm loginRequest={this.props.loginRequest}/>}
+          <SignupForm signupRequest={this.props.signupRequest} /> :
+          <LoginForm loginRequest={this.props.loginRequest} />}
       </section>
     );
   }
 
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   route: state.route,
 });
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   loginRequest: user => dispatch(authActions.loginRequest(user)),
   signupRequest: user => dispatch(authActions.signupRequest(user)),
 });
