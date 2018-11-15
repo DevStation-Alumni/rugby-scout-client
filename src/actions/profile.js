@@ -10,7 +10,7 @@ export const profileSet = profile => ({
 export const profileUpdate = profile => ({
   type: 'PROFILE_UPDATE',
   payload: profile,
-});
+}); 
 
 export const profileFetchRequest = () => (dispatch, getState) => {
   let { auth } = getState();
