@@ -10,7 +10,7 @@ export const profileSet = profile => ({
 export const profileCreate = profile => ({
   type: 'PROFILE_CREATE',
   payload: profile,
-});
+}); 
 
 
 
