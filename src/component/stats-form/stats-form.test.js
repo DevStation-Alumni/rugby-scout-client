@@ -7,7 +7,7 @@ import 'jest';
 Enzyme.configure({ adapter: new Adapter });
 import StatsForm from './stats-form';
 
-describe('Stats form component', () =>{
+describe('Stats form component', () => {
 
   test('Stats form component exists', () => {
     let wrapper = Enzyme.shallow(<StatsForm />);
@@ -16,13 +16,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on wins input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'wins',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'wins',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="wins"]').simulate('change', event);
 
@@ -32,13 +34,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on losses input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'losses',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'losses',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="losses"]').simulate('change', event);
 
@@ -48,13 +52,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on tries input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'tries',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'tries',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="tries"]').simulate('change', event);
 
@@ -64,13 +70,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on conversions input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'conversions',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'conversions',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="conversions"]').simulate('change', event);
 
@@ -80,13 +88,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on penaltyGoals input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'penaltyGoals',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'penaltyGoals',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="penaltyGoals"]').simulate('change', event);
 
@@ -96,13 +106,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on dropGoals input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'dropGoals',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'dropGoals',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="dropGoals"]').simulate('change', event);
 
@@ -112,13 +124,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on tackles input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'tackles',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'tackles',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="tackles"]').simulate('change', event);
 
@@ -128,13 +142,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on offloads input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'offloads',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'offloads',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="offloads"]').simulate('change', event);
 
@@ -144,13 +160,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on handlingErrors input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'handlingErrors',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'handlingErrors',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="handlingErrors"]').simulate('change', event);
 
@@ -160,13 +178,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on runMeters input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'runMeters',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'runMeters',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="runMeters"]').simulate('change', event);
 
@@ -176,13 +196,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on lineBreaks input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'lineBreaks',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'lineBreaks',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="lineBreaks"]').simulate('change', event);
 
@@ -192,13 +214,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on penaltiesConceded input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'penaltiesConceded',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'penaltiesConceded',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="penaltiesConceded"]').simulate('change', event);
 
@@ -208,13 +232,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on yellowCards input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'yellowCards',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'yellowCards',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="yellowCards"]').simulate('change', event);
 
@@ -224,13 +250,15 @@ describe('Stats form component', () =>{
   });
 
   test('should show changes on redCards input', () => {
-  
+
     let onChange = sinon.spy(StatsForm.prototype, 'handleChange');
     let wrapper = Enzyme.shallow(<StatsForm />);
-    const event = {target: {
-      name: 'redCards',
-      value: 5,
-    }};
+    const event = {
+      target: {
+        name: 'redCards',
+        value: 5,
+      }
+    };
 
     wrapper.find('input[name="redCards"]').simulate('change', event);
 
@@ -239,4 +267,22 @@ describe('Stats form component', () =>{
     onChange.restore();
   });
 
+  test('should call prop function on submit', () => {
+    let onSubmit = sinon.spy(StatsForm.prototype, 'handleSubmit');
+
+    let statsAction = {
+      updateStats: sinon.fake(),
+    };
+
+    let wrapper = Enzyme.shallow(<StatsForm statsAction={statsAction} />);
+    const event = {
+      preventDefault: jest.fn(),
+    };
+
+    wrapper.find('form').simulate('submit', event);
+
+    expect(onSubmit.callCount).toBe(1);
+    expect(statsAction.updateStats.callCount).toBe(1);
+    onSubmit.restore();
+  });
 });

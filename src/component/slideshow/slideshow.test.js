@@ -1,16 +1,15 @@
 import React from 'react';
 import Enzyme from 'enzyme';
-import sinon from 'sinon';
 import Adapter from 'enzyme-adapter-react-16';
 import 'jest';
 
 Enzyme.configure({ adapter: new Adapter });
-import AboutContainer from './about';
+import Slideshow from './slideshow';
 
-describe('About Component', () => {
+describe('Slideshow Component', () => {
 
-  test('About component exists', () => {
-    let wrapper = Enzyme.shallow(<AboutContainer />);
+  test('Slideshow component exists', () => {
+    let wrapper = Enzyme.shallow(<Slideshow />);
 
     expect(wrapper.exists()).toBeTruthy();
   });
