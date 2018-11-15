@@ -17,10 +17,10 @@ export const cookieFetch = key => {
 
 export const tokenFetch = () => {
   let token = cookieFetch('token');
-  if (token){
+  if (token) {
     localStorage.setItem('token', token);
     cookieDelete('token');
-  } else if (localStorage.token){
+  } else if (localStorage.token) {
     token = localStorage.token;
   }
   return token;
