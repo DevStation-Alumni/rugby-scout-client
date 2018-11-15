@@ -39,7 +39,7 @@ export class App extends React.Component {
         <BrowserRouter>
           <div>
             <header>
-              <CustomNav actions={this.props.actions} state={this.props}/>
+              <CustomNav actions={this.props.actions} state={this.props} authActions={this.props.authActions}/>
             </header>
             <MemoryRouter>
               <Switch location={{ pathname: this.props.route }} >
@@ -88,6 +88,8 @@ const mapDispatchToProps = dispatch => ({
   authActions:
   {
     login: token => dispatch(authActions.login(token)),
+    logout: () => dispatch(authActions.logout()),
+
   },
 });
 
