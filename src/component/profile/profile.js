@@ -24,7 +24,7 @@ export default class ProfileContainer extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     console.log(this.state);
-    this.props.profileAction.createProfile(this.state);
+    this.props.profileAction.updateProfile(this.state);
     console.log(this.state);
   }
 
