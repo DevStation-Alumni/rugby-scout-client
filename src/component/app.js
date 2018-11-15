@@ -95,7 +95,7 @@ const mapDispatchToProps = dispatch => ({
     login: token => dispatch(authActions.login(token)),
     logout: () => dispatch(authActions.logout()),
 
-
+  },
   profilePhotoActions:
   {
     createProfilePhoto: (profile) => dispatch(profilePhoto.profilePhotoRequest(profile)),
