@@ -15,6 +15,17 @@ export const cookieFetch = key => {
   return cookies[key];
 };
 
+export const tokenFetch = () => {
+  let token = cookieFetch('token');
+  if (token){
+    localStorage.setItem('token', token);
+    cookieDelete('token');
+  } else if (localStorage.token){
+    token = localStorage.token;
+  }
+  return token;
+};
+
 export const renderIf = (test, component) => {
   return test ? component : null;
 };
