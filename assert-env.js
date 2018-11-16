@@ -5,7 +5,7 @@ const required = [
 try {
   required.forEach(key => {
     if (!process.env[key])
-      throw new Error(`ENVIRONMENT ERROR: slugchat requires process.env.${key} to be set`);
+      throw new Error(`ENVIRONMENT ERROR: Rugby Scout requires process.env.${key} to be set`);
   });
 } catch (e) {
   console.error(e.message);
