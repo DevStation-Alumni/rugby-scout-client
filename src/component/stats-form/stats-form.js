@@ -17,7 +17,7 @@ export default class StatsForm extends React.Component {
         offloads: '',
         handlingErrors: '',
         runMeters: '',
-        lineBreaks: '',
+        linebreaks: '',
         penaltiesConceded: '',
         yellowCards: '',
         redCards: '',
@@ -73,7 +73,7 @@ export default class StatsForm extends React.Component {
               <h2>Run Meters:</h2>
               <input name='runMeters' type='number' placeholder='runMeters' value={this.state.runMeters} onChange={this.handleChange} />
               <h2>Line Breaks:</h2>
-              <input name='lineBreaks' type='number' placeholder='lineBreaks' value={this.state.lineBreaks} onChange={this.handleChange} />
+              <input name='linebreaks' type='number' placeholder='linebreaks' value={this.state.linebreaks} onChange={this.handleChange} />
               <h2>Penalties Conceded:</h2>
               <input name='penaltiesConceded' type='number' placeholder='penaltiesConceded' value={this.state.penaltiesConceded} onChange={this.handleChange} />
               <h2>Yellow Cards:</h2>
