@@ -14,17 +14,23 @@ Created by: [Sharon Miller](https://github.com/SharonMiller), [Connor Crossley](
 - [Installation Instructions](#Installation)
 - [Deployment](#Deployment) 
 
-#Overview
+# Overview
 
 * This front end provides a client web application that allows an authenticated user to create and update a profile and stats for to show their achievments to rugby recruiters. It also alows any user to view player profiles, stats and rankings.  
 
-#Technologies
-The primary technologies leveraged in this app include React, Redux, React BootStrap, HTLM5, and SCSS. 
+# Technologies
+The primary technologies leveraged in the front-end of this app include:
+- React
+- Redux
+- React BootStrap
+- HTLM5
+- Jest/Enzyme/Sinon
+- SCSS
 
- #Current Version (0.1.0)
+ # Current Version (1.0.0)
   * The current version of this program is designed to create, save, update and display  a stats and profiles for rugby players.
 
- #Installation
+ # Installation
   Set up of Local Development Environment:
   * You must download, install, configure, and run both a front end application and the supporting backend infrastructure for the local development environment.  
   * **Prerequisites**:  You need to install mongo database prior to the installation of the backend on your local environment. You may find more info on this process directly from mongo at:
@@ -34,7 +40,7 @@ The primary technologies leveraged in this app include React, Redux, React BootS
     * See info the Readme at our [rugby scout server git repo](https://github.com/TeamAquamarine/rugby-scout-server)  
       
 
-  * ###Front-End:   
+  * ### Front-End:   
     * Install:  
       * navigate to https://github.com/TeamAquamarine/rugby-scout-client  
       * clone this repo by clicking on the "clone or download" button and save the link.
@@ -53,7 +59,7 @@ The primary technologies leveraged in this app include React, Redux, React BootS
 
   ****
 
-  #Deployment
+  # Deployment
   * The front end of this application is currently deployed on AWS S3 and the backend is being deployed on Heroku. 
     
   * When we push a git branch to master on Heroku it is automaically run through tests and it is deployed to the Heroku application..   
