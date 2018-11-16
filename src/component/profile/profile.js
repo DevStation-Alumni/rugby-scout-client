@@ -57,6 +57,13 @@ export default class ProfileContainer extends React.Component {
             onChange={this.handleChange}
           />
           <input
+            name='position'
+            type='text'
+            placeholder='position'
+            value={this.state.position}
+            onChange={this.handleChange}
+          />
+          <input
             name='role'
             type='text'
             placeholder='player or coach?'

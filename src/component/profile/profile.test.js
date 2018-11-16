@@ -62,6 +62,23 @@ describe('Profile Component', () => {
     onChange.restore();
   });
 
+  test('should show changes on position input', () => {
+
+    let onChange = sinon.spy(ProfileContainer.prototype, 'handleChange');
+    let wrapper = Enzyme.shallow(<ProfileContainer />);
+    const event = {
+      target: {
+        name: 'position',
+        value: 'flyhalf',
+      },
+    };
+
+    wrapper.find('input[name="position"]').simulate('change', event);
+
+    expect(onChange.callCount).toBe(1);
+    onChange.restore();
+  });
+
   test('should show changes on role input', () => {
 
     let onChange = sinon.spy(ProfileContainer.prototype, 'handleChange');
