@@ -1,8 +1,17 @@
 .profileItem {
+  clear: both;
+  margin: 10px 0;
+  padding: 4px;
+  border-top: 1px solid $black;
+
   img{
-    max-width: 160px;
+    max-width: 66px;
+    margin-right: 5px;
+    float: left;
 }
  p{
    margin-bottom: 1em;
+   font-size: 0.75em;
+   font-style: italic;
  }
 }
