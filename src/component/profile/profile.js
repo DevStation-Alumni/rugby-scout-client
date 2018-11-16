@@ -1,5 +1,10 @@
 import React from 'react';
 import ProfilePhoto from '../profile-photo/profile-photo';
+import ProfileDetail from '../profile-detail/profileDetail';
+import StatsForm from '../stats-form/stats-form';
+import StatsView from '../stats-view/stats-view';
+import { Image, Grid, Col, Row } from 'react-bootstrap';
+
 
 
 export default class ProfileContainer extends React.Component {
@@ -9,6 +14,7 @@ export default class ProfileContainer extends React.Component {
     this.state = {
       firstName: '',
       lastName: '',
+      position: '',
       role: '',
       bio: '',
     };
@@ -31,51 +37,68 @@ export default class ProfileContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     this.props.profileAction.updateProfile(this.state);
-    console.log(this.state);
   }
 
   render() {
     return (
       <section className="profile">
-        <ProfilePhoto photoSubmit={this.props.photoSubmit} />
-        <form onSubmit={this.handleSubmit}>
-          <input
-            name='firstName'
-            type='text'
-            placeholder='first name'
-            value={this.state.firstName}
-            onChange={this.handleChange}
-          />
-          <input
-            name='lastName'
-            type='text'
-            placeholder='last name'
-            value={this.state.lastName}
-            onChange={this.handleChange}
-          />
-          <input
-            name='role'
-            type='text'
-            placeholder='player or coach?'
-            value={this.state.role}
-            onChange={this.handleChange}
-          />
-          <textarea
-            name="bio"
-            cols="30"
-            rows="10"
-            value={this.state.bio}
-            onChange={this.handleChange}>
-          </textarea>
-          <button type="submit">submit</button>
-        </form>
+        <div>
+          <Grid>
+            <Row>
+              <Col xs={12} sm={2} className="photo-submit">
+                <ProfilePhoto photoSubmit={this.props.photoSubmit} />
+              </Col>
+              <Col xs={12} sm={10} className="profile-form">
+                <form onSubmit={this.handleSubmit}>
+                  <input
+                    name='firstName'
+                    type='text'
+                    placeholder='first name'
+                    value={this.state.firstName}
+                    onChange={this.handleChange}
+                  />
+                  <input
+                    name='lastName'
+                    type='text'
+                    placeholder='last name'
+                    value={this.state.lastName}
+                    onChange={this.handleChange}
+                  />
+                  <input
+                    name='position'
+                    type='text'
+                    placeholder='position'
+                    value={this.state.position}
+                    onChange={this.handleChange}
+                  />
+                  <input
+                    name='role'
+                    type='text'
+                    placeholder='player or coach?'
+                    value={this.state.role}
+                    onChange={this.handleChange}
+                  />
+                  <textarea
+                    name="bio"
+                    cols="30"
+                    rows="10"
+                    value={this.state.bio}
+                    onChange={this.handleChange}>
+                  </textarea>
+                  <button type="submit">submit</button>
+                </form>
+              </Col>
+            </Row>
+            <Row>
+              {/* PROFILE DETAIL VIEW CAN GO HERE */}
+              <ProfileDetail profile={this.state} />
+            </Row>
+            <StatsForm updateStats={this.props.updateStats} fetchProfile={this.props.profileAction.fetchProfile} />
+            <StatsView stats={this.props.stats} />
+          </Grid>
+        </div>
 
-        {/* PROFILE DETAIL VIEW CAN GO HERE */}
-
-        {/* STATS FORM CAN GO HERE */}
-        {/* STATS VIEW CAN GO HERE */}
       </section>
     );
   }

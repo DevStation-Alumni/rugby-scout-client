@@ -1,7 +1,13 @@
 .carousel-container {
   max-width: 900px;
-  height: 300px;
+  max-height: 300px;
   margin: auto;
+  margin-bottom: 1em; 
+
+    .carousel-indicators li{
+      opacity: 0;
+  }
+  
 }
 
 @media (max-width: 900px) {
