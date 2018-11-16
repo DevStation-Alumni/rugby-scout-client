@@ -12,9 +12,8 @@ export const statsUpdate = stats => ({
 
 export const statsUpdateRequest = stats => (dispatch, getState) => {
   let { auth } = getState();
-  console.log(stats);
   return superagent.put(`${__API_URL__}/api/v1/statBlock`)
-    .set(`Authorization`,`Bearer ${auth}`)
+    .set(`Authorization`, `Bearer ${auth}`)
     .send(stats)
     .then(res => {
       dispatch(statsUpdate(res.body));
