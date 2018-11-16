@@ -1,0 +1,22 @@
+.profilePreview {
+  max-width: 100%;
+  margin: auto;
+
+  h1 {
+    font-weight: bold;
+    font-size: 2.5em;
+    margin: 10px;
+  }
+
+  .profile-info {
+    h1 {
+      font-weight: bold;
+      font-size: 2em;
+      margin: 2px 0;
+    }
+    h2 {
+      font-style: italic;
+      margin-bottom: 5px;
+    }
+  }
+}
