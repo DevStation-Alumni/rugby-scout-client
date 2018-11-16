@@ -37,7 +37,6 @@ export class App extends React.Component {
     this.props.authActions.login(token);
 
     this.props.profileAction.fetchProfile();
-
   }
 
   render() {
@@ -47,7 +46,7 @@ export class App extends React.Component {
         <BrowserRouter>
           <div>
             <header>
-              <CustomNav actions={this.props.actions} state={this.props} authActions={this.props.authActions} />
+              <CustomNav actions={this.props.actions} state={this.props} profile={this.props.profile} authActions={this.props.authActions} />
             </header>
             <MemoryRouter>
               <Switch location={{ pathname: this.props.route }} >
@@ -75,6 +74,7 @@ export class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  profile: state.profile,
   stats: state.stats,
   auth: state.auth,
   route: state.route,
