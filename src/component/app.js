@@ -10,7 +10,7 @@ import AboutContainer from './about/about';
 import CustomNav from './navbar/navbar';
 
 import * as route from '../actions/route';
-import { fetchResultsRequest } from '../actions/search-actions';
+import { fetchResultsRequest, fetchTopTenRequest } from '../actions/search-actions';
 import * as profileActions from '../actions/profile';
 import * as authActions from '../actions/auth';
 import { cookieFetch, cookieDelete, tokenFetch } from '../lib/util';
@@ -52,7 +52,7 @@ export class App extends React.Component {
                 <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto} />} />
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
-                <Route path='/' render={(props) => <LandingContainer {...props} api={this.props.api} />} />
+                <Route path='/' render={(props) => <LandingContainer {...props} results={this.props.topTen} api={this.props.api} />} />
               </Switch>
             </MemoryRouter>
           </div>
@@ -69,6 +69,7 @@ const mapStateToProps = state => ({
   results: state.search.results,
   loading: state.search.loading,
   error: state.search.error,
+  topTen: state.search.topTen,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -82,6 +83,7 @@ const mapDispatchToProps = dispatch => ({
   },
   api: {
     fetchResultsRequest: query => dispatch(fetchResultsRequest(query)),
+    fetchTopTenRequest: () => dispatch(fetchTopTenRequest()),
   },
   profileAction:
   {

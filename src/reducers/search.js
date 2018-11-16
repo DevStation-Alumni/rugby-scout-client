@@ -2,12 +2,15 @@ import {
   FETCH_RESULTS_BEGIN,
   FETCH_RESULTS_SUCCESS,
   FETCH_RESULTS_FAILURE,
+  FETCH_TOP_TEN_SUCCESS,
+  FETCH_TOP_TEN_FAILURE,
 } from '../actions/search-actions';
 
 const initialState = {
   results: [],
   loading: false,
   error: null,
+  topTen: [],
 };
 
 export default (state = initialState, action) => {
@@ -33,7 +36,20 @@ export default (state = initialState, action) => {
         ...state,
         loading: false,
         error: payload,
-        items: [],
+        results: [],
+      };
+
+    case FETCH_TOP_TEN_SUCCESS:
+      return {
+        ...state,
+        topTen: payload,
+      };
+
+    case FETCH_TOP_TEN_FAILURE:
+      return {
+        ...state,
+        error: payload,
+        topTen: [],
       };
 
     default:

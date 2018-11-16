@@ -1,5 +1,6 @@
 import React from 'react';
 import ProfilePhoto from '../profile-photo/profile-photo';
+import ProfileDetail from '../profile-detail/profileDetail';
 
 
 export default class ProfileContainer extends React.Component {
@@ -73,6 +74,7 @@ export default class ProfileContainer extends React.Component {
         </form>
 
         {/* PROFILE DETAIL VIEW CAN GO HERE */}
+        <ProfileDetail profile={this.state} />
 
         {/* STATS FORM CAN GO HERE */}
         {/* STATS VIEW CAN GO HERE */}

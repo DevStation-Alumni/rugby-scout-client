@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
+import ProfileItem from '../profile-item/profileItem';
 
 
 export default class SearchResultsContainer extends React.Component {
@@ -8,11 +9,10 @@ export default class SearchResultsContainer extends React.Component {
   }
 
   renderResults(results) {
-    return results.map(item => {
+    return results.map(profile => {
       return (
-        <li key={item._id}>
-          <Image src={item.imageSrc} responsive thumbnail />
-          <p>{item.firstName + ' ' + item.lastName}</p>
+        <li key={profile._id}>
+          <ProfileItem profile={profile} />
         </li>
       );
     });
