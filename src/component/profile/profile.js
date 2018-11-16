@@ -1,7 +1,10 @@
 import React from 'react';
 import ProfilePhoto from '../profile-photo/profile-photo';
 import ProfileDetail from '../profile-detail/profileDetail';
+import StatsForm from '../stats-form/stats-form';
+import StatsView from '../stats-view/stats-view';
 import { Image, Grid, Col, Row } from 'react-bootstrap';
+
 
 
 export default class ProfileContainer extends React.Component {
@@ -33,12 +36,11 @@ export default class ProfileContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     this.props.profileAction.updateProfile(this.state);
-    console.log(this.state);
   }
 
   render() {
+    console.log(this.props)
     return (
       <section className="profile">
         <div>
@@ -49,7 +51,6 @@ export default class ProfileContainer extends React.Component {
               </Col>
               <Col xs={12} sm={10} className="profile-form">
                 <form onSubmit={this.handleSubmit}>
-
                   <input
                     name='firstName'
                     type='text'
@@ -93,10 +94,11 @@ export default class ProfileContainer extends React.Component {
               {/* PROFILE DETAIL VIEW CAN GO HERE */}
               <ProfileDetail profile={this.state} />
             </Row>
-            {/* STATS FORM CAN GO HERE */}
-            {/* STATS VIEW CAN GO HERE */}
+        <StatsForm updateStats={this.props.updateStats} fetchProfile={this.props.profileAction.fetchProfile}/>
+        <StatsView stats={this.props.stats}/>
           </Grid>
         </div>
+
       </section>
     );
   }

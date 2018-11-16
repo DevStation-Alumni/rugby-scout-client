@@ -13,6 +13,7 @@ import * as route from '../actions/route';
 import { fetchResultsRequest, fetchTopTenRequest, fetchOneProfile } from '../actions/search-actions';
 import * as profileActions from '../actions/profile';
 import * as authActions from '../actions/auth';
+import * as statsActions from '../actions/stats';
 import { cookieFetch, cookieDelete, tokenFetch } from '../lib/util';
 
 import * as profilePhoto from '../actions/profile-photo';
@@ -35,9 +36,12 @@ export class App extends React.Component {
     console.log(token);
     this.props.authActions.login(token);
 
+    this.props.profileAction.fetchProfile();
+
   }
 
   render() {
+    console.log(this.props);
     return (
       <section className="app">
         <BrowserRouter>
@@ -49,9 +53,14 @@ export class App extends React.Component {
               <Switch location={{ pathname: this.props.route }} >
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
+
+
+                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto}  updateStats={this.props.statsActions.updateStats} stats={this.props.stats}/>} />
+
                 <Route path='/search-results' render={(props) => <SearchResultsContainer {...props} results={this.props.results} api={this.props.api} />} />
-                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto} />} />
+
                 <Route path='/profileDetail' render={(props) => <ProfileDetail {...props} profileDetail={this.props.profileDetail} />} />
+
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
                 <Route path='/' render={(props) => <LandingContainer {...props} results={this.props.topTen} api={this.props.api} />} />
@@ -66,6 +75,7 @@ export class App extends React.Component {
 }
 
 const mapStateToProps = state => ({
+  stats: state.stats,
   auth: state.auth,
   route: state.route,
   results: state.search.results,
@@ -99,12 +109,14 @@ const mapDispatchToProps = dispatch => ({
   {
     login: token => dispatch(authActions.login(token)),
     logout: () => dispatch(authActions.logout()),
-
   },
   profilePhotoActions:
   {
     createProfilePhoto: (profile) => dispatch(profilePhoto.profilePhotoRequest(profile)),
-
+  },
+  statsActions:
+  {
+    updateStats: (stats) => dispatch(statsActions.statsUpdateRequest(stats)),
   },
 });
 
