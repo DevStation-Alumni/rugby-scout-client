@@ -28,3 +28,11 @@ export const fetchResultsRequest = query => dispatch => {
     })
     .catch(err => dispatch(fetchResultsFailure(err)));
 };
+
+export const fetchTopTenRequest = () => dispatch => {
+  return superagent.get(`${__API_URL__}/api/v1/profile/topten/player`)
+    .then(res => {
+      dispatch(fetchResultsSuccess(res.body));
+    })
+    .catch(err => dispatch(fetchResultsFailure(err)));
+};

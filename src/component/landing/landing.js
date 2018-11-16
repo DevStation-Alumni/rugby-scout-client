@@ -7,9 +7,17 @@ import ActionButton from '../action-button/actionButton';
 export default class LandingContainer extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {};
+  }
+
+  componentDidMount() {
+    this.props.api.fetchTopTenRequest();
   }
 
   render() {
+    console.log(this.props.results);
+
     return (
       <section className="profile">
         <div>
