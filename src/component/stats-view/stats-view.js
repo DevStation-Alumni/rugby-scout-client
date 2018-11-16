@@ -6,7 +6,7 @@ export default class StatsView extends React.Component {
 
   }
   render() {
-    let {stats} = this.props;
+    let { stats } = this.props;
     let statList = Object.keys(stats);
 
     return (
@@ -17,12 +17,14 @@ export default class StatsView extends React.Component {
             <th>Category</th>
             <th>Stat</th>
           </tr>
-          {statList.map(stat => {
-            return <tr key={stat}>
-              <td>{stat}</td>
-              <td>{stats[stat]}</td>
-            </tr>;
-          })}
+          <tbody>
+            {statList.map(stat => {
+              return <tr key={stat}>
+                <td>{stat}</td>
+                <td>{stats[stat]}</td>
+              </tr>;
+            })}
+          </tbody>
         </table>
       </div>
     );

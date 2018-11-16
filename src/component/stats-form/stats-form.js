@@ -82,6 +82,7 @@ export default class StatsForm extends React.Component {
               <input name='redCards' type='number' placeholder='redCards' value={this.state.redCards} onChange={this.handleChange} />
               <button type="submit">submit</button>
             </form>
+
           </Row>
         </Grid>
       </section>
