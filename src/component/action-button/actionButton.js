@@ -14,7 +14,7 @@ export default class ActionButton extends React.Component {
 
   render() {
     return (
-      <Image src={this.props.src} onClick={this.handleClick} />
+      <Image className="action-image" src={this.props.src} onClick={this.handleClick} />
     );
   }
 }

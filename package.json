@@ -78,6 +78,7 @@
     "webpack-merge": "^4.1.4"
   },
   "devDependencies": {
+    "copy-webpack-plugin": "^4.6.0",
     "redux-mock-store": "^1.5.3"
   }
 }

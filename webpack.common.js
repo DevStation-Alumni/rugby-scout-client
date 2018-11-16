@@ -2,6 +2,7 @@
 require('dotenv').config();
 require('./assert-env');
 
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { DefinePlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -20,6 +21,10 @@ webpackConfig.plugins = [
     title: 'React App',
     template: `${__dirname}/src/index.html`,
   }),
+  new CopyWebpackPlugin([
+    // relative path is from src
+    { from: './public/assets/favicon.ico' }, // <- your path to favicon
+  ]),
 
   new DefinePlugin({
     __DEBUG__: JSON.stringify(!production),

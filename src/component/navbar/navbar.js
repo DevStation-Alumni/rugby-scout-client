@@ -15,7 +15,7 @@ export default class CustomNav extends React.Component {
     let { state } = this.props;
     console.log(state);
     return (
-      <Navbar className="sticky-nav" default collapseOnSelect>
+      <Navbar className="sticky-nav" collapseOnSelect>
         <Navbar.Header>
           <Navbar.Brand>
             <Image src="https://s3.amazonaws.com/rugbyscout-two/rslogoonline.svg" className="logo" />
