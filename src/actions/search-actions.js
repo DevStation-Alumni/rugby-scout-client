@@ -30,7 +30,7 @@ export const fetchResultsRequest = query => dispatch => {
 };
 
 export const fetchTopTenRequest = () => dispatch => {
-  return superagent.get(`${__API_URL__}/api/v1/profile/topten/player`)
+  return superagent.get(`${__API_URL__}/api/v1/statBlock/topten/player`)
     .then(res => {
       dispatch(fetchResultsSuccess(res.body));
     })
