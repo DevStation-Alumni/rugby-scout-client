@@ -91,8 +91,6 @@ export default class SignupForm extends React.Component {
                 <input name='password' type='password' placeholder='password' value={this.state.password} onChange={this.handleChange} />
                 <button type="submit">Register</button>
               </form>
-              <h3>Or, signup using Google</h3>
-              <a href={googleLoginURL}>Google Link</a>
             </Col>
           </Row>
         </Grid>
