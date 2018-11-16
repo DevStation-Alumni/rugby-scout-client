@@ -102,10 +102,10 @@ export default class ProfileContainer extends React.Component {
               <ProfileDetail profile={this.state} />
             </Row>
             <Row>
-              <Col xs={12} sm={2} >
+              <Col className="stats-update" xs={12} sm={6} >
                 <StatsForm updateStats={this.props.updateStats} fetchProfile={this.props.profileAction.fetchProfile} />
               </Col>
-              <Col xs={12} sm={10} >
+              <Col xs={12} sm={6} className="profile-stats" >
                 <StatsView stats={this.props.stats} />
               </Col>
             </Row>
