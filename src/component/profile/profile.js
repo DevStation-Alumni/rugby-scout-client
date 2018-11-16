@@ -38,7 +38,7 @@ export default class ProfileContainer extends React.Component {
   }
 
   render() {
-
+    console.log(this.props)
     return (
       <section className="profile">
         <ProfilePhoto photoSubmit={this.props.photoSubmit} />
@@ -81,13 +81,9 @@ export default class ProfileContainer extends React.Component {
           <button type="submit">submit</button>
         </form>
 
-        {/* PROFILE DETAIL VIEW CAN GO HERE */}
         <ProfileDetail profile={this.state} />
-
         <StatsForm updateStats={this.props.updateStats} fetchProfile={this.props.profileAction.fetchProfile}/>
-        {/* <StatsView /> */}
-        {/* STATS FORM CAN GO HERE */}
-        {/* STATS VIEW CAN GO HERE */}
+        <StatsView stats={this.props.stats}/>
       </section>
     );
   }
