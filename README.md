@@ -16,7 +16,10 @@ Created by: [Sharon Miller](https://github.com/SharonMiller), [Connor Crossley](
 
 #Overview
 
-* This front end provides a client web application that allows an authenticated user to create and update a profile and stats for to show their achievments to rugby recruiters. It also alows any user to view player profiles, stats and rankings.  The primary technologies leveraged in this app include React, Redux, React BootStrap, HTLM5, and SCSS. 
+* This front end provides a client web application that allows an authenticated user to create and update a profile and stats for to show their achievments to rugby recruiters. It also alows any user to view player profiles, stats and rankings.  
+
+#Technologies
+The primary technologies leveraged in this app include React, Redux, React BootStrap, HTLM5, and SCSS. 
 
  #Current Version (0.1.0)
   * The current version of this program is designed to create, save, update and display  a stats and profiles for rugby players.
