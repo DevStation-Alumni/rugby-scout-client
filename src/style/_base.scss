@@ -1,7 +1,7 @@
 body {
   font-family: $font-primary;
   color:$font-color;
-  background-color: #e4e4e4;
+  background-color: #f2f2f2;
 }
 
 h1 {
@@ -11,10 +11,12 @@ h1 {
 
 h3 {
   color: $font-color;
+  font-weight: 100;
   font-size: 1.2em;
 }
 
 li {
   font-family: $font-block;
+  font-weight : lighter;
 }
 
