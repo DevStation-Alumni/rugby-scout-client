@@ -13,7 +13,6 @@ export default class CustomNav extends React.Component {
   render() {
     let { goToAbout, goToLanding, goToLogin, goToSignup, goToProfile } = this.props.actions;
     let { state } = this.props;
-    console.log(state);
     return (
       <Navbar className="sticky-nav" collapseOnSelect>
         <Navbar.Header>
