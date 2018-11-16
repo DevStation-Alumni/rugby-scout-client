@@ -50,8 +50,8 @@ export default class LandingContainer extends React.Component {
                 </ul>
               </Col>
               <Col className="button-section" xs={12} sm={7}>
-                <ActionButton className="landing-buttons" src="https://s3.amazonaws.com/rugbyscout-two/landingbuttons/coach.jpg" api={this.props.api} query='player' />
-                <ActionButton iclassName="landing-buttons" src="https://s3.amazonaws.com/rugbyscout-two/landingbuttons/player.jpg" api={this.props.api} query='coach' />
+                <ActionButton className="landing-buttons" src="https://s3.amazonaws.com/rugbyscout-two/landingbuttons/player.jpg" api={this.props.api} query='player' />
+                <ActionButton iclassName="landing-buttons" src="https://s3.amazonaws.com/rugbyscout-two/landingbuttons/coach.jpg" api={this.props.api} query='coach' />
               </Col>
               <Col xs={0} sm={2}></Col>
             </Row>
