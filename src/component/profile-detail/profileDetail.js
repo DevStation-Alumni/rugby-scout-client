@@ -1,5 +1,6 @@
 import React from 'react';
 import { Image } from 'react-bootstrap';
+import StatsView from '../stats-view/stats-view';
 
 export default class ProfileDetail extends React.Component {
   constructor(props) {
@@ -7,9 +8,8 @@ export default class ProfileDetail extends React.Component {
   }
 
   render() {
-    console.log(this.props);
+    const { profile, stats } = this.props.profileDetail ? this.props.profileDetail : this.props;
 
-    const { profile } = this.props.profileDetail ? this.props.profileDetail : this.props;
     return (
       <div className="profilePreview">
         <h1>Profile Preview</h1>
@@ -17,6 +17,9 @@ export default class ProfileDetail extends React.Component {
         <h1>{profile.firstName + ' ' + profile.lastName}</h1>
         <h2>{profile.position}</h2>
         <p>{profile.bio}</p>
+        <div className="statsView">
+          {stats ? <StatsView stats={stats[0]} /> : null}
+        </div>
       </div>
     );
   }
