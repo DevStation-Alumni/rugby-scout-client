@@ -10,13 +10,14 @@ import AboutContainer from './about/about';
 import CustomNav from './navbar/navbar';
 
 import * as route from '../actions/route';
-import { fetchResultsRequest, fetchTopTenRequest } from '../actions/search-actions';
+import { fetchResultsRequest, fetchTopTenRequest, fetchOneProfile } from '../actions/search-actions';
 import * as profileActions from '../actions/profile';
 import * as authActions from '../actions/auth';
 import * as statsActions from '../actions/stats';
 import { cookieFetch, cookieDelete, tokenFetch } from '../lib/util';
 
 import * as profilePhoto from '../actions/profile-photo';
+import ProfileDetail from './profile-detail/profileDetail';
 
 
 
@@ -50,7 +51,11 @@ export class App extends React.Component {
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
                 <Route path='/search-results' render={(props) => <SearchResultsContainer {...props} results={this.props.results} />} />
+
                 <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto} state={this.props} updateStats={this.props.statsActions.updateStats}/>} />
+
+                <Route path='/profileDetail' render={(props) => <ProfileDetail {...props} profileDetail={this.props.profileDetail} />} />
+
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
                 <Route path='/' render={(props) => <LandingContainer {...props} results={this.props.topTen} api={this.props.api} />} />
@@ -71,6 +76,7 @@ const mapStateToProps = state => ({
   loading: state.search.loading,
   error: state.search.error,
   topTen: state.search.topTen,
+  profileDetail: state.search.profileDetail,
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -85,6 +91,7 @@ const mapDispatchToProps = dispatch => ({
   api: {
     fetchResultsRequest: query => dispatch(fetchResultsRequest(query)),
     fetchTopTenRequest: () => dispatch(fetchTopTenRequest()),
+    fetchOneProfile: id => dispatch(fetchOneProfile(id)),
   },
   profileAction:
   {

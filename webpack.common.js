@@ -23,7 +23,7 @@ webpackConfig.plugins = [
   }),
   new CopyWebpackPlugin([
     // relative path is from src
-    { from: './public/assets/favicon.ico' }, // <- your path to favicon
+    { from: 'public/assets/favicon.ico' }, // <- your path to favicon
   ]),
 
   new DefinePlugin({
