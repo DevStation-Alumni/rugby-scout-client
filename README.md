@@ -1,4 +1,4 @@
-# rugby-scout-client
+# Rugby Scout Client
 A web application that will track Rugby stats and players to make information accessible to college recruiters. Create an interface that will allow rugby, teams, coaches and players to upload a profile with stats, videos.
 *****
 
@@ -31,7 +31,7 @@ The primary technologies leveraged in this app include React, Redux, React BootS
     * https://docs.mongodb.com/manual/
     * https://docs.mongodb.com/manual/mongo/  
   * ### Back-End:   
-    * See info the Readme at [rugby-scout-server git repo](https://github.com/TeamAquamarine/rugby-scout-server)  
+    * See info the Readme at our [rugby scout server git repo](https://github.com/TeamAquamarine/rugby-scout-server)  
       
 
   * ###Front-End:   

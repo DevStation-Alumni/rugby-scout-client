@@ -17,9 +17,11 @@ export class AuthFormContainer extends React.Component {
     console.log('PROPS', this.props.loginRequest);
     return (
       <section className="auth-form">
+
         {this.props.route === '/signup' ?
           <SignupForm signupRequest={this.props.signupRequest} /> :
           <LoginForm loginRequest={this.props.loginRequest} />}
+
       </section>
     );
   }
