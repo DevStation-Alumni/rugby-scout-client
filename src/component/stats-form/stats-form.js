@@ -34,7 +34,7 @@ export default class StatsForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.statsAction.updateStats(this.state);
+    this.props.updateStats(this.state);
   }
 
   render() {

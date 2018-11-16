@@ -13,6 +13,7 @@ import * as route from '../actions/route';
 import { fetchResultsRequest, fetchTopTenRequest } from '../actions/search-actions';
 import * as profileActions from '../actions/profile';
 import * as authActions from '../actions/auth';
+import * as statsActions from '../actions/stats';
 import { cookieFetch, cookieDelete, tokenFetch } from '../lib/util';
 
 import * as profilePhoto from '../actions/profile-photo';
@@ -49,7 +50,7 @@ export class App extends React.Component {
                 <Route path='/signup' component={AuthContainer} />
                 <Route path='/login' component={AuthContainer} />
                 <Route path='/search-results' render={(props) => <SearchResultsContainer {...props} results={this.props.results} />} />
-                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto} />} />
+                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto} state={this.props} updateStats={this.props.statsActions.updateStats}/>} />
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
                 <Route path='/' render={(props) => <LandingContainer {...props} results={this.props.topTen} api={this.props.api} />} />
@@ -95,12 +96,14 @@ const mapDispatchToProps = dispatch => ({
   {
     login: token => dispatch(authActions.login(token)),
     logout: () => dispatch(authActions.logout()),
-
   },
   profilePhotoActions:
   {
     createProfilePhoto: (profile) => dispatch(profilePhoto.profilePhotoRequest(profile)),
-
+  },
+  statsActions:
+  {
+    updateStats: (stats) => dispatch(statsActions.statsUpdateRequest(stats)),
   },
 });
 

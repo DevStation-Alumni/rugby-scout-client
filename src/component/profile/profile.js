@@ -1,6 +1,8 @@
 import React from 'react';
 import ProfilePhoto from '../profile-photo/profile-photo';
 import ProfileDetail from '../profile-detail/profileDetail';
+import StatsForm from '../stats-form/stats-form';
+import StatsView from '../stats-view/stats-view';
 
 
 export default class ProfileContainer extends React.Component {
@@ -32,12 +34,11 @@ export default class ProfileContainer extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     this.props.profileAction.updateProfile(this.state);
-    console.log(this.state);
   }
 
   render() {
+
     return (
       <section className="profile">
         <ProfilePhoto photoSubmit={this.props.photoSubmit} />
@@ -76,6 +77,8 @@ export default class ProfileContainer extends React.Component {
         {/* PROFILE DETAIL VIEW CAN GO HERE */}
         <ProfileDetail profile={this.state} />
 
+        <StatsForm updateStats={this.props.updateStats}/>
+        {/* <StatsView /> */}
         {/* STATS FORM CAN GO HERE */}
         {/* STATS VIEW CAN GO HERE */}
       </section>
