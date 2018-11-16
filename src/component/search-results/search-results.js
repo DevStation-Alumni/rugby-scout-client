@@ -12,7 +12,7 @@ export default class SearchResultsContainer extends React.Component {
     return results.map(profile => {
       return (
         <li key={profile._id}>
-          <ProfileItem profile={profile} />
+          <ProfileItem profile={profile} onClick={this.props.api.fetchOneProfile} />
         </li>
       );
     });
