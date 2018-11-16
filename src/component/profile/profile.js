@@ -94,8 +94,14 @@ export default class ProfileContainer extends React.Component {
               {/* PROFILE DETAIL VIEW CAN GO HERE */}
               <ProfileDetail profile={this.state} />
             </Row>
-            <StatsForm updateStats={this.props.updateStats} fetchProfile={this.props.profileAction.fetchProfile} />
-            <StatsView stats={this.props.stats} />
+            <Row>
+              <Col xs={12} sm={2} >
+                <StatsForm updateStats={this.props.updateStats} fetchProfile={this.props.profileAction.fetchProfile} />
+              </Col>
+              <Col xs={12} sm={10} >
+                <StatsView stats={this.props.stats} />
+              </Col>
+            </Row>
           </Grid>
         </div>
 
