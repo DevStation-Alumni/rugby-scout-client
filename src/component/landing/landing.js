@@ -20,7 +20,7 @@ export default class LandingContainer extends React.Component {
     return results.map(result => {
       return (
         <li key={result._id}>
-          <ProfileItem profile={result.profile} />
+          <ProfileItem profile={result.profile} onClick={this.props.api.fetchOneProfile} />
         </li>
       );
     });
@@ -60,6 +60,5 @@ export default class LandingContainer extends React.Component {
       </section >
     );
   }
-
 }
 
