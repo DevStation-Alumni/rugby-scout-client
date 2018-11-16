@@ -74,7 +74,7 @@ export default class ProfileContainer extends React.Component {
         </form>
 
         {/* PROFILE DETAIL VIEW CAN GO HERE */}
-        <ProfileDetail />
+        <ProfileDetail profile={this.state} />
 
         {/* STATS FORM CAN GO HERE */}
         {/* STATS VIEW CAN GO HERE */}
