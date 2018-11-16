@@ -29,18 +29,15 @@ export class App extends React.Component {
     if (token) {
       localStorage.setItem('token', token);
       cookieDelete('token');
-      console.log(token);
       this.props.actions.goToProfile();
     }
     token = tokenFetch();
-    console.log(token);
     this.props.authActions.login(token);
 
     this.props.profileAction.fetchProfile();
   }
 
   render() {
-    console.log(this.props);
     return (
       <section className="app">
         <BrowserRouter>
@@ -54,7 +51,7 @@ export class App extends React.Component {
                 <Route path='/login' component={AuthContainer} />
 
 
-                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto}  updateStats={this.props.statsActions.updateStats} stats={this.props.stats}/>} />
+                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto} updateStats={this.props.statsActions.updateStats} stats={this.props.stats} />} />
 
                 <Route path='/search-results' render={(props) => <SearchResultsContainer {...props} results={this.props.results} api={this.props.api} />} />
 

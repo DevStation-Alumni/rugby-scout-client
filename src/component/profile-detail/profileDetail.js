@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Grid, Col, Row } from 'react-bootstrap';
 import StatsView from '../stats-view/stats-view';
-
+import './_profileDetail.scss';
 
 export default class ProfileDetail extends React.Component {
   constructor(props) {
@@ -16,8 +16,8 @@ export default class ProfileDetail extends React.Component {
       <div className="profilePreview">
         <Grid>
           <Row>
+            <h1>Profile</h1>
             <Col xs={12} sm={2} className="profile-photo">
-              <h1>Profile Preview</h1>
               <Image src={profile.imageSrc} responsive />
             </Col>
             <Col xs={12} sm={10} className="profile-info">

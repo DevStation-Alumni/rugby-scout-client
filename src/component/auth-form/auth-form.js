@@ -14,7 +14,6 @@ export class AuthFormContainer extends React.Component {
 
 
   render() {
-    console.log('PROPS', this.props.loginRequest);
     return (
       <section className="auth-form">
 

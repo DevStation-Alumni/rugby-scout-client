@@ -42,7 +42,6 @@ export const loginRequest = user => dispatch => {
     .auth(user.email, user.password)
     .withCredentials()
     .then(res => {
-      console.log('RES', res);
       localStorage.setItem('token', res.text);
       dispatch(login(res.text));
       dispatch(switchRoute('/'));

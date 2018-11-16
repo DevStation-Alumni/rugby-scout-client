@@ -20,20 +20,23 @@ export default class ProfilePhoto extends React.Component {
       this.setState({ profilePhoto });
 
       photoToDataUrl(profilePhoto)
-        .then(preview => this.setState({ preview }))
+        .then(preview => {
+          this.setState({ preview });
+          this.props.reRender(this.state.preview);
+        })
         .catch(console.error);
     }
   }
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.props);
     this.props.photoSubmit(this.state);
   }
+
   render() {
     return (
       <section className="profile">
         <form className="profile-photo" onSubmit={this.handleSubmit}>
-          <img src={this.state.preview} style={{ 'width': '25%' }} />
+          {/* <img src={this.state.preview} style={{ 'width': '25%' }} /> */}
           <input type="file" name="profilePhoto" onChange={this.handleChange}></input>
           <button type="submit">submit</button>
         </form>

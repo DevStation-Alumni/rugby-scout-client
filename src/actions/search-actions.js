@@ -64,7 +64,6 @@ export const fetchTopTenRequest = () => dispatch => {
 export const fetchOneProfile = id => dispatch => {
   return superagent.get(`${__API_URL__}/api/v1/profile/${id}`)
     .then(res => {
-      console.log(res.body);
       dispatch(fetchOneSuccess(res.body));
       dispatch(switchRoute('/profileDetail'));
     })
