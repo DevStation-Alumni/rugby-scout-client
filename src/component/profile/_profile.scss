@@ -4,4 +4,36 @@
 
 .profile-form {
   width: 80%;
+  h1{
+    font-family: $font-block;
+    font-size: 1.5em; 
+    padding-bottom: .5em;
 }
+}
+
+.stats-update{
+    margin-top: 1em;
+    padding-left: 1em;
+    max-height: 400px;
+    overflow: hidden;
+      width: 20%;
+      overflow-y: scroll;
+}
+
+.profile{
+  h1{
+    font-family: $font-block;
+    font-size: 1.5em; 
+    padding-bottom: .5em;
+}
+
+}
+
+.profile-stats{
+max-height: 400px;
+width: 80%;
+margin-top: 1em;
+
+
+}
+
