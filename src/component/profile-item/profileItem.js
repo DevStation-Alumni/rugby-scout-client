@@ -16,7 +16,9 @@ export default class ProfileItem extends React.Component {
     return (
       <div className="profileItem" onClick={this.handleClick}>
         <img src={profile.imageSrc} />
-        <p>{profile.firstName + ' ' + profile.lastName}</p>
+        <h2>{profile.firstName}</h2>
+        <h2>{profile.lastName}</h2>
+        <p>{profile.position}</p>
       </div>
     );
   }
