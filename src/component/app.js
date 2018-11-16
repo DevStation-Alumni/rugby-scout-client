@@ -52,7 +52,7 @@ export class App extends React.Component {
                 <Route path='/login' component={AuthContainer} />
                 <Route path='/search-results' render={(props) => <SearchResultsContainer {...props} results={this.props.results} />} />
 
-                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto} state={this.props} updateStats={this.props.statsActions.updateStats}/>} />
+                <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto}  updateStats={this.props.statsActions.updateStats}/>} />
 
                 <Route path='/profileDetail' render={(props) => <ProfileDetail {...props} profileDetail={this.props.profileDetail} />} />
 

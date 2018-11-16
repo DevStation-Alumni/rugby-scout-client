@@ -4,8 +4,7 @@ export default class StatsForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = props.stats ?
-      { ...props.stats } :
+    this.state = 
       {
         wins: '',
         losses: '',
@@ -25,6 +24,13 @@ export default class StatsForm extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchProfile()
+      .then(res => {
+        this.setState(res.body.stats);
+      });
   }
 
   handleChange(e) {
