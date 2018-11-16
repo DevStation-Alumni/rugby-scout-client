@@ -52,7 +52,7 @@ export class App extends React.Component {
                 <Route path='/profile/me' render={(props) => <ProfileContainer {...props} profileAction={this.props.profileAction} photoSubmit={this.props.profilePhotoActions.createProfilePhoto} />} />
                 <Route path='/profile' component={ProfileContainer} />
                 <Route path='/about' component={AboutContainer} />
-                <Route path='/' render={(props) => <LandingContainer {...props} results={this.props.results} api={this.props.api} />} />
+                <Route path='/' render={(props) => <LandingContainer {...props} results={this.props.topTen} api={this.props.api} />} />
               </Switch>
             </MemoryRouter>
           </div>
@@ -69,6 +69,7 @@ const mapStateToProps = state => ({
   results: state.search.results,
   loading: state.search.loading,
   error: state.search.error,
+  topTen: state.search.topTen,
 });
 
 const mapDispatchToProps = dispatch => ({
