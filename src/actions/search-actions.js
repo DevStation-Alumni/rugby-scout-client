@@ -54,7 +54,7 @@ export const fetchResultsRequest = query => dispatch => {
 };
 
 export const fetchTopTenRequest = () => dispatch => {
-  return superagent.get(`${__API_URL__}/api/v1/statBlock/topten/player`)
+  return superagent.get(`${__API_URL__}/api/v1/statBlock/topten/tries`)
     .then(res => {
       dispatch(fetchTopTenSuccess(res.body));
     })
