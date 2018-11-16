@@ -14,6 +14,7 @@ export default class ProfileContainer extends React.Component {
     this.state = {
       firstName: '',
       lastName: '',
+      position: '',
       role: '',
       bio: '',
     };
@@ -40,7 +41,6 @@ export default class ProfileContainer extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <section className="profile">
         <div>
@@ -94,8 +94,8 @@ export default class ProfileContainer extends React.Component {
               {/* PROFILE DETAIL VIEW CAN GO HERE */}
               <ProfileDetail profile={this.state} />
             </Row>
-        <StatsForm updateStats={this.props.updateStats} fetchProfile={this.props.profileAction.fetchProfile}/>
-        <StatsView stats={this.props.stats}/>
+            <StatsForm updateStats={this.props.updateStats} fetchProfile={this.props.profileAction.fetchProfile} />
+            <StatsView stats={this.props.stats} />
           </Grid>
         </div>
 
