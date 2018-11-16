@@ -7,7 +7,9 @@ export default class ProfileDetail extends React.Component {
   }
 
   render() {
-    const { profile } = this.props;
+    console.log(this.props);
+
+    const { profile } = this.props.profileDetail ? this.props.profileDetail : this.props;
     return (
       <div className="profilePreview">
         <h1>Profile Preview</h1>
