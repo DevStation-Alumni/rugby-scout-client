@@ -17,10 +17,12 @@ export default class ProfileContainer extends React.Component {
       position: '',
       role: '',
       bio: '',
+      imageSrc: 'https://s3.amazonaws.com/rugbyscout-two/defaultimage.png',
     };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.reRender = this.reRender.bind(this);
   }
 
   componentDidMount() {
@@ -40,6 +42,10 @@ export default class ProfileContainer extends React.Component {
     this.props.profileAction.updateProfile(this.state);
   }
 
+  reRender(imageSrc) {
+    this.setState({ imageSrc });
+  }
+
   render() {
     return (
       <section className="profile">
@@ -47,7 +53,8 @@ export default class ProfileContainer extends React.Component {
           <Grid>
             <Row>
               <Col xs={12} sm={2} className="photo-submit">
-                <ProfilePhoto photoSubmit={this.props.photoSubmit} />
+                <Image src={this.state.imageSrc} responsive />
+                <ProfilePhoto photoSubmit={this.props.photoSubmit} reRender={this.reRender} />
               </Col>
               <Col xs={12} sm={10} className="profile-form">
                 <form onSubmit={this.handleSubmit}>

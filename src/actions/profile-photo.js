@@ -1,6 +1,7 @@
 'use strict';
 
 import superagent from 'superagent';
+import { switchRoute } from './route';
 
 export const photoCreate = profilePhoto => ({
   type: 'PHOTO_CREATE',
