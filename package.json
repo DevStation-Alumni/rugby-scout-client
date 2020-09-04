@@ -58,7 +58,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.6.0",
     "mini-css-extract-plugin": "^0.4.4",
-    "node-sass": "^4.10.0",
+    "node-sass": "^4.13.1",
     "react": "^16.6.1",
     "react-bootstrap": "^0.32.4",
     "react-card-flipper": "^1.0.1",
